@@ -1,0 +1,656 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D21902826CD6346007F076A /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21902726CD6346007F076A /* CardComponent.swift */; };
+		3D21902A26CD68AB007F076A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21902926CD68AB007F076A /* ImagePicker.swift */; };
+		3DB34F6D26CC1B270081911C /* MagicReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */; };
+		3DB34F6F26CC1B270081911C /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F6E26CC1B270081911C /* CardListView.swift */; };
+		3DB34F7126CC1B280081911C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB34F7026CC1B280081911C /* Assets.xcassets */; };
+		3DB34F7426CC1B280081911C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB34F7326CC1B280081911C /* Preview Assets.xcassets */; };
+		3DB34F7E26CC1B290081911C /* MagicReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F7D26CC1B290081911C /* MagicReaderTests.swift */; };
+		3DB34F8826CC1B290081911C /* MagicReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F8726CC1B290081911C /* MagicReaderUITests.swift */; };
+		3DB34F9526CC1BEC0081911C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F9426CC1BEC0081911C /* SearchBar.swift */; };
+		3DB34F9926CC1C8E0081911C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F9826CC1C8E0081911C /* Card.swift */; };
+		3DB34F9B26CD25530081911C /* ScanCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F9A26CD25530081911C /* ScanCardView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3DB34F7A26CC1B290081911C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DB34F6126CC1B270081911C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DB34F6826CC1B270081911C;
+			remoteInfo = MagicReader;
+		};
+		3DB34F8426CC1B290081911C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DB34F6126CC1B270081911C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DB34F6826CC1B270081911C;
+			remoteInfo = MagicReader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3D21902726CD6346007F076A /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
+		3D21902926CD68AB007F076A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		3DB34F6926CC1B270081911C /* MagicReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicReaderApp.swift; sourceTree = "<group>"; };
+		3DB34F6E26CC1B270081911C /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
+		3DB34F7026CC1B280081911C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DB34F7326CC1B280081911C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3DB34F7926CC1B290081911C /* MagicReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB34F7D26CC1B290081911C /* MagicReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicReaderTests.swift; sourceTree = "<group>"; };
+		3DB34F8326CC1B290081911C /* MagicReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB34F8726CC1B290081911C /* MagicReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicReaderUITests.swift; sourceTree = "<group>"; };
+		3DB34F9426CC1BEC0081911C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		3DB34F9826CC1C8E0081911C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		3DB34F9A26CD25530081911C /* ScanCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCardView.swift; sourceTree = "<group>"; };
+		3DB34F9C26CD43AF0081911C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DB34F6626CC1B270081911C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB34F7626CC1B290081911C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB34F8026CC1B290081911C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3DB34F6026CC1B270081911C = {
+			isa = PBXGroup;
+			children = (
+				3DB34F6B26CC1B270081911C /* MagicReader */,
+				3DB34F7C26CC1B290081911C /* MagicReaderTests */,
+				3DB34F8626CC1B290081911C /* MagicReaderUITests */,
+				3DB34F6A26CC1B270081911C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3DB34F6A26CC1B270081911C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DB34F6926CC1B270081911C /* MagicReader.app */,
+				3DB34F7926CC1B290081911C /* MagicReaderTests.xctest */,
+				3DB34F8326CC1B290081911C /* MagicReaderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DB34F6B26CC1B270081911C /* MagicReader */ = {
+			isa = PBXGroup;
+			children = (
+				3DB34F9C26CD43AF0081911C /* Info.plist */,
+				3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */,
+				3DB34F9726CC1C750081911C /* Model */,
+				3DB34F9626CC1C130081911C /* View */,
+				3DB34F7026CC1B280081911C /* Assets.xcassets */,
+				3DB34F7226CC1B280081911C /* Preview Content */,
+			);
+			path = MagicReader;
+			sourceTree = "<group>";
+		};
+		3DB34F7226CC1B280081911C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3DB34F7326CC1B280081911C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3DB34F7C26CC1B290081911C /* MagicReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				3DB34F7D26CC1B290081911C /* MagicReaderTests.swift */,
+			);
+			path = MagicReaderTests;
+			sourceTree = "<group>";
+		};
+		3DB34F8626CC1B290081911C /* MagicReaderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3DB34F8726CC1B290081911C /* MagicReaderUITests.swift */,
+			);
+			path = MagicReaderUITests;
+			sourceTree = "<group>";
+		};
+		3DB34F9626CC1C130081911C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DB34F6E26CC1B270081911C /* CardListView.swift */,
+				3DB34F9A26CD25530081911C /* ScanCardView.swift */,
+				3DB34F9426CC1BEC0081911C /* SearchBar.swift */,
+				3D21902926CD68AB007F076A /* ImagePicker.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DB34F9726CC1C750081911C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DB34F9826CC1C8E0081911C /* Card.swift */,
+				3D21902726CD6346007F076A /* CardComponent.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DB34F6826CC1B270081911C /* MagicReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DB34F8B26CC1B290081911C /* Build configuration list for PBXNativeTarget "MagicReader" */;
+			buildPhases = (
+				3DB34F6526CC1B270081911C /* Sources */,
+				3DB34F6626CC1B270081911C /* Frameworks */,
+				3DB34F6726CC1B270081911C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MagicReader;
+			productName = MagicReader;
+			productReference = 3DB34F6926CC1B270081911C /* MagicReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3DB34F7826CC1B290081911C /* MagicReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DB34F8E26CC1B290081911C /* Build configuration list for PBXNativeTarget "MagicReaderTests" */;
+			buildPhases = (
+				3DB34F7526CC1B290081911C /* Sources */,
+				3DB34F7626CC1B290081911C /* Frameworks */,
+				3DB34F7726CC1B290081911C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DB34F7B26CC1B290081911C /* PBXTargetDependency */,
+			);
+			name = MagicReaderTests;
+			productName = MagicReaderTests;
+			productReference = 3DB34F7926CC1B290081911C /* MagicReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3DB34F8226CC1B290081911C /* MagicReaderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DB34F9126CC1B290081911C /* Build configuration list for PBXNativeTarget "MagicReaderUITests" */;
+			buildPhases = (
+				3DB34F7F26CC1B290081911C /* Sources */,
+				3DB34F8026CC1B290081911C /* Frameworks */,
+				3DB34F8126CC1B290081911C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DB34F8526CC1B290081911C /* PBXTargetDependency */,
+			);
+			name = MagicReaderUITests;
+			productName = MagicReaderUITests;
+			productReference = 3DB34F8326CC1B290081911C /* MagicReaderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3DB34F6126CC1B270081911C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					3DB34F6826CC1B270081911C = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					3DB34F7826CC1B290081911C = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 3DB34F6826CC1B270081911C;
+					};
+					3DB34F8226CC1B290081911C = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 3DB34F6826CC1B270081911C;
+					};
+				};
+			};
+			buildConfigurationList = 3DB34F6426CC1B270081911C /* Build configuration list for PBXProject "MagicReader" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3DB34F6026CC1B270081911C;
+			productRefGroup = 3DB34F6A26CC1B270081911C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DB34F6826CC1B270081911C /* MagicReader */,
+				3DB34F7826CC1B290081911C /* MagicReaderTests */,
+				3DB34F8226CC1B290081911C /* MagicReaderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3DB34F6726CC1B270081911C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DB34F7426CC1B280081911C /* Preview Assets.xcassets in Resources */,
+				3DB34F7126CC1B280081911C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB34F7726CC1B290081911C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB34F8126CC1B290081911C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3DB34F6526CC1B270081911C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D21902826CD6346007F076A /* CardComponent.swift in Sources */,
+				3DB34F6F26CC1B270081911C /* CardListView.swift in Sources */,
+				3DB34F6D26CC1B270081911C /* MagicReaderApp.swift in Sources */,
+				3DB34F9526CC1BEC0081911C /* SearchBar.swift in Sources */,
+				3D21902A26CD68AB007F076A /* ImagePicker.swift in Sources */,
+				3DB34F9926CC1C8E0081911C /* Card.swift in Sources */,
+				3DB34F9B26CD25530081911C /* ScanCardView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB34F7526CC1B290081911C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DB34F7E26CC1B290081911C /* MagicReaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB34F7F26CC1B290081911C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DB34F8826CC1B290081911C /* MagicReaderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3DB34F7B26CC1B290081911C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DB34F6826CC1B270081911C /* MagicReader */;
+			targetProxy = 3DB34F7A26CC1B290081911C /* PBXContainerItemProxy */;
+		};
+		3DB34F8526CC1B290081911C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DB34F6826CC1B270081911C /* MagicReader */;
+			targetProxy = 3DB34F8426CC1B290081911C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3DB34F8926CC1B290081911C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3DB34F8A26CC1B290081911C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3DB34F8C26CC1B290081911C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MagicReader/Preview Content\"";
+				DEVELOPMENT_TEAM = J9P8F4UWBG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MagicReader/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = MagicReader;
+				INFOPLIST_KEY_CFBundleName = MagicReader;
+				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You need to allow to use your camera to scan the card.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = akivlis.MagicReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3DB34F8D26CC1B290081911C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MagicReader/Preview Content\"";
+				DEVELOPMENT_TEAM = J9P8F4UWBG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MagicReader/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = MagicReader;
+				INFOPLIST_KEY_CFBundleName = MagicReader;
+				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You need to allow to use your camera to scan the card.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = akivlis.MagicReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3DB34F8F26CC1B290081911C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J9P8F4UWBG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = akivlis.MagicReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicReader.app/MagicReader";
+			};
+			name = Debug;
+		};
+		3DB34F9026CC1B290081911C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J9P8F4UWBG;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = akivlis.MagicReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicReader.app/MagicReader";
+			};
+			name = Release;
+		};
+		3DB34F9226CC1B290081911C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J9P8F4UWBG;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = akivlis.MagicReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MagicReader;
+			};
+			name = Debug;
+		};
+		3DB34F9326CC1B290081911C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J9P8F4UWBG;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = akivlis.MagicReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MagicReader;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DB34F6426CC1B270081911C /* Build configuration list for PBXProject "MagicReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DB34F8926CC1B290081911C /* Debug */,
+				3DB34F8A26CC1B290081911C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DB34F8B26CC1B290081911C /* Build configuration list for PBXNativeTarget "MagicReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DB34F8C26CC1B290081911C /* Debug */,
+				3DB34F8D26CC1B290081911C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DB34F8E26CC1B290081911C /* Build configuration list for PBXNativeTarget "MagicReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DB34F8F26CC1B290081911C /* Debug */,
+				3DB34F9026CC1B290081911C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DB34F9126CC1B290081911C /* Build configuration list for PBXNativeTarget "MagicReaderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DB34F9226CC1B290081911C /* Debug */,
+				3DB34F9326CC1B290081911C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3DB34F6126CC1B270081911C /* Project object */;
+}
