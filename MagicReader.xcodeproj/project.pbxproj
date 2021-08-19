@@ -13,6 +13,7 @@
 		3D5049C526CD922500E073F9 /* LoadingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049C426CD922500E073F9 /* LoadingImage.swift */; };
 		3D5049C726CD9ABA00E073F9 /* CardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049C626CD9ABA00E073F9 /* CardRow.swift */; };
 		3D5049CA26CDA23100E073F9 /* CardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049C926CDA23100E073F9 /* CardDetail.swift */; };
+		3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049CB26CE6E3300E073F9 /* Endpoint.swift */; };
 		3DB34F6D26CC1B270081911C /* MagicReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */; };
 		3DB34F6F26CC1B270081911C /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F6E26CC1B270081911C /* CardListView.swift */; };
 		3DB34F7126CC1B280081911C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB34F7026CC1B280081911C /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		3D5049C426CD922500E073F9 /* LoadingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingImage.swift; sourceTree = "<group>"; };
 		3D5049C626CD9ABA00E073F9 /* CardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRow.swift; sourceTree = "<group>"; };
 		3D5049C926CDA23100E073F9 /* CardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetail.swift; sourceTree = "<group>"; };
+		3D5049CB26CE6E3300E073F9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		3DB34F6926CC1B270081911C /* MagicReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicReaderApp.swift; sourceTree = "<group>"; };
 		3DB34F6E26CC1B270081911C /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				3DB34F9726CC1C750081911C /* Model */,
 				3DB34F7226CC1B280081911C /* Preview Content */,
 				3DB34F9626CC1C130081911C /* View */,
+				3D5049CB26CE6E3300E073F9 /* Endpoint.swift */,
 			);
 			path = MagicReader;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				3D21902A26CD68AB007F076A /* ImagePicker.swift in Sources */,
 				3DB34F9926CC1C8E0081911C /* Card.swift in Sources */,
 				3D5049C526CD922500E073F9 /* LoadingImage.swift in Sources */,
+				3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */,
 				3DB34F9B26CD25530081911C /* ScanCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,7 +502,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,7 +537,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

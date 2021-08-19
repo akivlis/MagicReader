@@ -19,12 +19,15 @@ struct CardListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $searchText)
+                SearchBar(text: $searchText,
+                          onTextChanged: viewModel.getCard(for:))
                     .padding(.bottom, 0.0)
 
                 List(viewModel.cards
                         .filter { searchText.isEmpty ? true : $0.name.contains(searchText) }) { card in
-                    CardRow(card: card)
+                    NavigationLink(destination: CardDetail(card: card)) {
+                        CardRow(card: card)
+                    }
                 }
 
                 Text(recognizedText)
@@ -43,9 +46,10 @@ struct CardListView: View {
             }
             .sheet(isPresented: $showingScanningView) {
 //                ScanCardView(recognizedText: self.$recognizedText)
-                ImagePicker(image: self.$inputImage, recognizedText: self.$recognizedText)
+                ImagePicker(image: self.$inputImage,
+                            recognizedText: self.$recognizedText)
             }.onAppear {
-                viewModel.getCards()
+//                viewModel.getCards()
             }
         }
     }
@@ -61,16 +65,18 @@ struct ContentView_Previews: PreviewProvider {
                  text: "Archangel Avacyn enters the battlefield, creatures you control gain indestructible until end of turn.",
                  setName: "Adventures in the Forgotten Realms",
                  power: "4",
-                 imageURL: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card",
-                 colors: ["W"]),
+                 imageSet: ImageSet(borderCrop: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"),
+                 colors: ["W"],
+                 rarity: .common),
             Card(cardId: "123",
                  name: "Ancestor's Chosen",
                  type: "Creature — Human Cleric",
                  text: "Archangel Avacyn enters the battlefield, creatures you control gain indestructible until end of turn.",
                  setName: "Tenth Edition",
                  power: "4",
-                 imageURL: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card",
-                 colors: ["W"])
+                 imageSet: ImageSet(borderCrop: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"),
+                 colors: ["W"],
+                 rarity: .common)
         ]
         let view = CardListView(viewModel: CardListViewModel(cards: cards))
         return view

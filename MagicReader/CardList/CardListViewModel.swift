@@ -10,10 +10,6 @@ import Combine
 
 class CardListViewModel: ObservableObject {
 
-    enum Constants {
-        static let defaultURL = "https://api.magicthegathering.io/v1"
-    }
-
     enum HTTPError: LocalizedError {
         case statusCode
     }
@@ -24,10 +20,14 @@ class CardListViewModel: ObservableObject {
 
     init(cards: [Card] = []) {
         self.cards = cards
+
+        getCards()
     }
 
     func getCards() {
-        let cardsURLString =  Constants.defaultURL + "/cards"
+        print("❤️ getting ALL")
+
+        let cardsURLString =  Endpoint.searchCard + "abol" // default search here
         let url = URL(string: cardsURLString)!
         fetchCards(from: url)
             .sink(receiveCompletion: { completion in
@@ -35,17 +35,18 @@ class CardListViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    print(String(describing: error))
+                    print("😈" + String(describing: error))
                 }
             }, receiveValue: { cards in
-                print("cards: \(cards)")
+                print("cards: \(cards.count)")
                 self.cards = cards
             })
             .store(in: &cancellables)
     }
 
     func getCard(for searchedName: String) {
-        let cardsURLString =  Constants.defaultURL + "/cards?name=\(searchedName)"
+        print("❤️ getting cards for: \(searchedName)")
+        let cardsURLString =  Endpoint.searchCard  + "\(searchedName)"
         let url = URL(string: cardsURLString)!
 
         fetchCards(from: url)
@@ -54,10 +55,10 @@ class CardListViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    print(String(describing: error))
+                    print("😈" + String(describing: error))
                 }
             }, receiveValue: { cards in
-                print("cards: \(cards)")
+                print("cards: \(cards.count)")
                 self.cards = cards
             })
             .store(in: &cancellables)

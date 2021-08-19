@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchBar: View {
     @Binding var text: String
+    var onTextChanged: (String) -> Void
 
     @State private var isEditing = false
 
@@ -20,6 +21,10 @@ struct SearchBar: View {
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
+                .onChange(of: text, perform: { newValue in
+                    print(newValue)
+                    onTextChanged(newValue)
+                })
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -64,6 +69,9 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar(text: .constant(""))
+        SearchBar(text: .constant(""),
+                  onTextChanged: { newValue in
+            print("text changed to: \(newValue)")
+        })
     }
 }
