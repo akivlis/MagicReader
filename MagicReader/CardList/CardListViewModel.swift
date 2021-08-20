@@ -27,7 +27,7 @@ class CardListViewModel: ObservableObject {
     func getCards() {
         print("❤️ getting ALL")
 
-        let cardsURLString =  Endpoint.searchCard + "abol" // default search here
+        let cardsURLString =  Endpoint.randomCard
         let url = URL(string: cardsURLString)!
         fetchCards(from: url)
             .sink(receiveCompletion: { completion in
@@ -67,13 +67,12 @@ class CardListViewModel: ObservableObject {
 
 private extension CardListViewModel {
 
-    func fetchCards(from url: URL) -> AnyPublisher<[Card], Never> {
+    func fetchCards(from url: URL) -> AnyPublisher<[Card], Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: CardResponse.self, decoder: JSONDecoder())
             .receive(on: RunLoop.main)
             .map { $0.cards }
-            .replaceError(with: [Card]())
             .eraseToAnyPublisher()
     }
 }

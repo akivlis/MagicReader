@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import UniformTypeIdentifiers
 
 struct Card: Codable, Identifiable {
 
@@ -17,10 +18,11 @@ struct Card: Codable, Identifiable {
     let text: String?
     let setName: String
     let power: String?
-    let imageSet: ImageSet
+    let imageSet: ImageSet?
     let colors: [String]
     var artist: String = ""
     let rarity: Rarity
+    let prices : PriceSet
 
     enum CodingKeys: String, CodingKey {
         case cardId = "id"
@@ -33,6 +35,7 @@ struct Card: Codable, Identifiable {
         case colors
         case artist
         case rarity
+        case prices
     }
 }
 
@@ -47,12 +50,12 @@ struct CardResponse: Codable {
 }
 
 struct ImageSet: Codable {
-    var png = ""
-    var borderCrop = ""
-    var artCrop = ""
-    var large = ""
-    var normal = ""
-    var small = ""
+    var png: String? = ""
+    var borderCrop: String? = ""
+    var artCrop: String? = ""
+    var large: String? = ""
+    var normal: String? = ""
+    var small: String? = ""
 
     enum CodingKeys: String, CodingKey {
         case png
@@ -61,6 +64,22 @@ struct ImageSet: Codable {
         case large
         case normal
         case small
+    }
+}
+
+struct PriceSet: Codable {
+    var usd: String? = ""
+    var usdFoil: String? = ""
+    var euro: String? = ""
+    var euroFoil: String? = ""
+    var tix: String? = ""
+
+    enum CodingKeys: String, CodingKey {
+        case usd
+        case usdFoil = "usd_foil"
+        case euro = "eur"
+        case tix
+        case euroFoil = "eur_foil"
     }
 }
 

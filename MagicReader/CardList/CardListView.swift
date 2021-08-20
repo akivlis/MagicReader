@@ -28,10 +28,10 @@ struct CardListView: View {
                     NavigationLink(destination: CardDetail(card: card)) {
                         CardRow(card: card)
                     }
-                }
+                }   
 
-                Text(recognizedText)
-                    .padding()
+//                Text(recognizedText)
+//                    .padding()
             }
             .navigationBarTitle("Single Cards")
             .toolbar {
@@ -45,9 +45,12 @@ struct CardListView: View {
                 }
             }
             .sheet(isPresented: $showingScanningView) {
-//                ScanCardView(recognizedText: self.$recognizedText)
-                ImagePicker(image: self.$inputImage,
-                            recognizedText: self.$recognizedText)
+                let cameraViewModel = CameraViewModel()
+                CameraPreview(recognizedText: self.$recognizedText,
+                              session: cameraViewModel.session)
+                    .onAppear {
+                        cameraViewModel.startCamera()
+                    }
             }.onAppear {
 //                viewModel.getCards()
             }
@@ -67,7 +70,8 @@ struct ContentView_Previews: PreviewProvider {
                  power: "4",
                  imageSet: ImageSet(borderCrop: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"),
                  colors: ["W"],
-                 rarity: .common),
+                 rarity: .common,
+                 prices: PriceSet()),
             Card(cardId: "123",
                  name: "Ancestor's Chosen",
                  type: "Creature — Human Cleric",
@@ -76,7 +80,8 @@ struct ContentView_Previews: PreviewProvider {
                  power: "4",
                  imageSet: ImageSet(borderCrop: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"),
                  colors: ["W"],
-                 rarity: .common)
+                 rarity: .common,
+                 prices: PriceSet(euro: "5 euro"))
         ]
         let view = CardListView(viewModel: CardListViewModel(cards: cards))
         return view

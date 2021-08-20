@@ -15,29 +15,41 @@ struct CardDetail: View {
 //            Color.black.ignoresSafeArea()
             ScrollView {
             VStack {
-                AsyncImage(url: URL(string: card.imageSet.png),
-                           transaction: Transaction(animation: .spring())) { phase in
-                    switch phase {
-                    case .empty:
+                if #available(iOS 15.0, *) {
+                    AsyncImage(url: URL(string: card.imageSet?.png ?? ""),
+                               transaction: Transaction(animation: .spring())) { phase in
+                        switch phase {
+                        case .empty:
                             Color.gray.opacity(0.1)
 
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .scaledToFit()
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFit()
 
-                    case .failure(_):
-                        ZStack {
-                            Color.gray.opacity(0.1)
-                            Text("No image for this card")
+                        case .failure(_):
+                            ZStack {
+                                Color.gray.opacity(0.1)
+                                Text("No image for this card")
+                            }
+                        @unknown default:
+                            Image(systemName: "exclamationmark.icloud")
                         }
-                    @unknown default:
-                        Image(systemName: "exclamationmark.icloud")
+                    }
+                               .frame(width: 400, height: 500)
+                               .padding(.horizontal)
+                               .cornerRadius(5)
+                } else {
+                    // Fallback on earlier versions
+                    if let url = URL(string: card.imageSet?.png ?? "") {
+                        LoadingImage(url: url) {
+                            Image(systemName: "exclamationmark.icloud")
+                        }
+                        .frame(width: 400, height: 500)
+                        .padding(.horizontal)
+                        .cornerRadius(5)
                     }
                 }
-                .frame(width: 400, height: 500)
-                .padding(.horizontal)
-                .cornerRadius(5)
 
                 VStack(alignment: .leading) {
                     Text(card.name)
@@ -70,17 +82,20 @@ struct CardDetail: View {
 
                     Divider()
 
-                    Text("Price")
-                        .font(.title2)
-                        .foregroundColor(.white)
-                    Text("here comes price")
+                    HStack {
+                        Text("Price")
+                        Spacer()
+                        Text((card.prices.euro ?? "") + "€")
+                    }
+                    .font(.headline)
+                    .foregroundColor(.primary)
                 }
                 .padding()
 
                 Spacer()
             }
             }.onAppear {
-                print("Downloading image: \(card.imageSet.borderCrop)")
+                print("Downloading image: \(card.imageSet?.borderCrop)")
             }
         }
     }
@@ -97,7 +112,8 @@ struct CardDetail_Previews: PreviewProvider {
                         imageSet: ImageSet(borderCrop: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"),
                         colors: ["W"],
                         artist: "Silvi",
-                        rarity: .common)
+                        rarity: .common,
+                        prices: PriceSet())
         CardDetail(card: card)
     }
 }
