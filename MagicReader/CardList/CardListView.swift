@@ -13,14 +13,18 @@ struct CardListView: View {
 
     @State private var searchText = ""
     @State private var showingScanningView = false
+    @State private var showingCardDetail = false
     @State private var recognizedText = ""
     @State private var inputImage: UIImage?
+    @State private var recognizedCard: Card?
+
+    let cameraViewModel = CameraViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
                 SearchBar(text: $searchText,
-                          onTextChanged: viewModel.getCard(for:))
+                          onTextChanged: viewModel.searchCards(for:))
                     .padding(.bottom, 0.0)
 
                 List(viewModel.cards
@@ -28,10 +32,11 @@ struct CardListView: View {
                     NavigationLink(destination: CardDetail(card: card)) {
                         CardRow(card: card)
                     }
-                }   
+                }
+                        .edgesIgnoringSafeArea(.bottom)
 
-//                Text(recognizedText)
-//                    .padding()
+                Text(recognizedText)
+                    .padding()
             }
             .navigationBarTitle("Single Cards")
             .toolbar {
@@ -41,19 +46,43 @@ struct CardListView: View {
                 }) {
                     Image(systemName: "camera.viewfinder")
                         .font(.largeTitle)
-                        .foregroundColor(.purple)
+                        .foregroundColor(.orange)
                 }
             }
-            .sheet(isPresented: $showingScanningView) {
-                let cameraViewModel = CameraViewModel()
+            .sheet(isPresented: $showingScanningView,
+                   onDismiss: { self.showingScanningView = false },
+                   content: {
+
                 CameraPreview(recognizedText: self.$recognizedText,
-                              session: cameraViewModel.session)
-                    .onAppear {
-                        cameraViewModel.startCamera()
-                    }
-            }.onAppear {
-//                viewModel.getCards()
+                              session: cameraViewModel.session,
+                              onTextDetected: { name, setName in
+                    viewModel.getCard(for: name, setName: setName, onCardFetched: { card in
+//                        showingCardDetail = true
+//                        showingScanningView = false
+                        recognizedCard = card
+                        print(card)
+                    })
+                })
+                Text(recognizedText)
+            })
+            .onAppear {
+                cameraViewModel.startCamera()
             }
+            .onDisappear {
+                cameraViewModel.stopCamera()
+            }
+            .sheet(isPresented: $showingCardDetail) {
+                if let card = recognizedCard {
+                    CardDetail(card: card)
+                }
+            }
+            .onAppear {
+                //                viewModel.getCards()
+            }
+//            .onReceive(viewModel.fetchedCard, perform: { _ in
+//                self.showingScanningView = false
+//            self.showingcardDetal = true
+//            })
         }
     }
 }

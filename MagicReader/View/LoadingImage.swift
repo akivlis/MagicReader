@@ -36,6 +36,9 @@ struct LoadingImage<Placeholder: View>: View {
         Group {
             if loader.image != nil {
                 image(loader.image!)
+                    .scaledToFit()
+                    .frame(width: 400, height: 500)
+
             } else {
                 placeholder
             }

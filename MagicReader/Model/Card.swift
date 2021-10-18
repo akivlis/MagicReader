@@ -19,7 +19,7 @@ struct Card: Codable, Identifiable {
     let setName: String
     let power: String?
     let imageSet: ImageSet?
-    let colors: [String]
+    let colors: [String]?
     var artist: String = ""
     let rarity: Rarity
     let prices : PriceSet
@@ -40,8 +40,8 @@ struct Card: Codable, Identifiable {
 }
 
 struct CardResponse: Codable {
-    let cards: [Card]
-    let totalCards: Int
+    let cards: [Card]?
+    let totalCards: Int?
     
     enum CodingKeys: String, CodingKey {
         case cards = "data"

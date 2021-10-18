@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class CardListViewModel: ObservableObject {
 
@@ -15,6 +16,8 @@ class CardListViewModel: ObservableObject {
     }
 
     @Published var cards: [Card] = []
+    @Published var recognizedCard: Card?
+
     var cancellables = Set<AnyCancellable>()
     private var cancellable: AnyCancellable?
 
@@ -44,10 +47,10 @@ class CardListViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    func getCard(for searchedName: String) {
+    func searchCards(for searchedName: String) {
         print("❤️ getting cards for: \(searchedName)")
         let cardsURLString =  Endpoint.searchCard  + "\(searchedName)"
-        let url = URL(string: cardsURLString)!
+        guard let url = URL(string: cardsURLString) else { return }
 
         fetchCards(from: url)
             .sink(receiveCompletion: { completion in
@@ -63,6 +66,38 @@ class CardListViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
+
+    func getCard(for recognizedName: String, setName: String, onCardFetched: @escaping (Card) -> ()) {
+        guard recognizedName.count > 9 else { return }
+        print("❤️ fetch cards for: \(recognizedName)")
+        let cardsURLString = "https://api.scryfall.com/cards/search?q=regal+s%3Aakh"
+        let name = recognizedName.filter {!$0.isWhitespace}.lowercased()
+
+//        let url = Endpoint.searchCard  + "\(name)+s%3A\(setName)"
+        let url = Endpoint.searchCard  + "\(name)"
+
+        print("url: \(url)")
+        guard let url = URL(string: cardsURLString) else { return }
+
+        fetchCards(from: url)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("😈" + String(describing: error))
+                }
+            }, receiveValue: { cards in
+                print("cards: \(cards.count)")
+
+                cards.forEach { card in
+                    print("🚀 card: \(card.name) \(card.setName), \(card.type)")
+                }
+                guard let fetchedCard = cards.first else { return }
+                onCardFetched(fetchedCard)
+            })
+            .store(in: &cancellables)
+    }
 }
 
 private extension CardListViewModel {
@@ -72,7 +107,7 @@ private extension CardListViewModel {
             .map { $0.data }
             .decode(type: CardResponse.self, decoder: JSONDecoder())
             .receive(on: RunLoop.main)
-            .map { $0.cards }
+            .compactMap { $0.cards }
             .eraseToAnyPublisher()
     }
 }

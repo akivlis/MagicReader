@@ -15,7 +15,6 @@ struct CardDetail: View {
 //            Color.black.ignoresSafeArea()
             ScrollView {
             VStack {
-                if #available(iOS 15.0, *) {
                     AsyncImage(url: URL(string: card.imageSet?.png ?? ""),
                                transaction: Transaction(animation: .spring())) { phase in
                         switch phase {
@@ -39,17 +38,6 @@ struct CardDetail: View {
                                .frame(width: 400, height: 500)
                                .padding(.horizontal)
                                .cornerRadius(5)
-                } else {
-                    // Fallback on earlier versions
-                    if let url = URL(string: card.imageSet?.png ?? "") {
-                        LoadingImage(url: url) {
-                            Image(systemName: "exclamationmark.icloud")
-                        }
-                        .frame(width: 400, height: 500)
-                        .padding(.horizontal)
-                        .cornerRadius(5)
-                    }
-                }
 
                 VStack(alignment: .leading) {
                     Text(card.name)

@@ -13,7 +13,6 @@ struct CardRow: View {
     var body: some View {
         HStack {
             HStack {
-                if #available(iOS 15.0, *) {
                     AsyncImage(url: URL(string: card.imageSet?.small ?? "")) { phase in
                         switch phase {
                         case .empty:
@@ -30,9 +29,6 @@ struct CardRow: View {
                         }
                     }
                     .frame(width: 60, height: 70)
-                } else {
-                    // Fallback on earlier versions
-                }
 
                 VStack(alignment: .leading, spacing: 6) {
                     Text(card.name)

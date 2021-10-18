@@ -23,23 +23,8 @@ class CameraViewModel: ObservableObject {
     func startCamera() {
         session.startRunning()
     }
-}
 
-private extension CameraViewModel {
-
-//    func startCamera() {
-//        session.sessionPreset = AVCaptureSession.Preset.photo
-//
-//        guard let captureDevice = AVCaptureDevice.default(for: .video)
-//        else { return }
-//
-//        guard let deviceInput = try? AVCaptureDeviceInput(device: captureDevice)
-//        else { return }
-//
-//        let output = AVCaptureVideoDataOutput()
-//        session.addOutput(output)
-//
-//        session.addInput(deviceInput)
-//        session.startRunning()
-//    }
+    func stopCamera() {
+        session.stopRunning()
+    }
 }
