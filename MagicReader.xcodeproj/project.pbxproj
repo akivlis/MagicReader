@@ -10,7 +10,6 @@
 		3D21902826CD6346007F076A /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21902726CD6346007F076A /* CardComponent.swift */; };
 		3D21902A26CD68AB007F076A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21902926CD68AB007F076A /* ImagePicker.swift */; };
 		3D21902D26CD7695007F076A /* CardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21902C26CD7695007F076A /* CardListViewModel.swift */; };
-		3D5049C526CD922500E073F9 /* LoadingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049C426CD922500E073F9 /* LoadingImage.swift */; };
 		3D5049C726CD9ABA00E073F9 /* CardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049C626CD9ABA00E073F9 /* CardRow.swift */; };
 		3D5049CA26CDA23100E073F9 /* CardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049C926CDA23100E073F9 /* CardDetail.swift */; };
 		3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049CB26CE6E3300E073F9 /* Endpoint.swift */; };
@@ -51,7 +50,6 @@
 		3D21902726CD6346007F076A /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		3D21902926CD68AB007F076A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3D21902C26CD7695007F076A /* CardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModel.swift; sourceTree = "<group>"; };
-		3D5049C426CD922500E073F9 /* LoadingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingImage.swift; sourceTree = "<group>"; };
 		3D5049C626CD9ABA00E073F9 /* CardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRow.swift; sourceTree = "<group>"; };
 		3D5049C926CDA23100E073F9 /* CardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetail.swift; sourceTree = "<group>"; };
 		3D5049CB26CE6E3300E073F9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				3DB34F9A26CD25530081911C /* ScanCardView.swift */,
 				3DB34F9426CC1BEC0081911C /* SearchBar.swift */,
 				3D21902926CD68AB007F076A /* ImagePicker.swift */,
-				3D5049C426CD922500E073F9 /* LoadingImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,7 +350,6 @@
 				3D21902D26CD7695007F076A /* CardListViewModel.swift in Sources */,
 				3D21902A26CD68AB007F076A /* ImagePicker.swift in Sources */,
 				3DB34F9926CC1C8E0081911C /* Card.swift in Sources */,
-				3D5049C526CD922500E073F9 /* LoadingImage.swift in Sources */,
 				3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */,
 				3D892FA626CFCC8A00FB367D /* ScannerViewController.swift in Sources */,
 				3D892FA926CFD1A600FB367D /* CameraPreviewViewModel.swift in Sources */,

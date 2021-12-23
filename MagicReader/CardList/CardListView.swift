@@ -57,10 +57,10 @@ struct CardListView: View {
                               session: cameraViewModel.session,
                               onTextDetected: { name, setName in
                     viewModel.getCard(for: name, setName: setName, onCardFetched: { card in
-//                        showingCardDetail = true
-//                        showingScanningView = false
+                        showingScanningView = false
                         recognizedCard = card
                         print(card)
+                        showingCardDetail = true
                     })
                 })
                 Text(recognizedText)
@@ -69,6 +69,7 @@ struct CardListView: View {
                 cameraViewModel.startCamera()
             }
             .onDisappear {
+                print("stopping the camera from  list view")
                 cameraViewModel.stopCamera()
             }
             .sheet(isPresented: $showingCardDetail) {
@@ -77,7 +78,8 @@ struct CardListView: View {
                 }
             }
             .onAppear {
-                //                viewModel.getCards()
+                print("CARD LIST VIEW APPEARED")
+                viewModel.getCards()
             }
 //            .onReceive(viewModel.fetchedCard, perform: { _ in
 //                self.showingScanningView = false

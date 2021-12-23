@@ -70,14 +70,13 @@ class CardListViewModel: ObservableObject {
     func getCard(for recognizedName: String, setName: String, onCardFetched: @escaping (Card) -> ()) {
         guard recognizedName.count > 9 else { return }
         print("❤️ fetch cards for: \(recognizedName)")
-        let cardsURLString = "https://api.scryfall.com/cards/search?q=regal+s%3Aakh"
         let name = recognizedName.filter {!$0.isWhitespace}.lowercased()
 
 //        let url = Endpoint.searchCard  + "\(name)+s%3A\(setName)"
         let url = Endpoint.searchCard  + "\(name)"
 
         print("url: \(url)")
-        guard let url = URL(string: cardsURLString) else { return }
+        guard let url = URL(string: url) else { return }
 
         fetchCards(from: url)
             .sink(receiveCompletion: { completion in
