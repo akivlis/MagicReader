@@ -1,5 +1,7 @@
 # MagicReader
 
+App scanning and detecting cards for the game Magic the Gathering.
+
 |Search|Realtime scanning|
 |-|-|
 |![magic](https://user-images.githubusercontent.com/32448186/147256435-d90a022f-35e4-4f22-bcd3-a73974f5b66d.gif)|![ezgif-3-0895b2590b](https://user-images.githubusercontent.com/32448186/147261554-17da565e-22fa-4b15-8e45-29ed30d43c6f.gif)|
