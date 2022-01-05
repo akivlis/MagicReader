@@ -1,6 +1,4 @@
-# MagicReader
-
-App scanning and detecting cards for the game Magic the Gathering.
+My pet project scanning and detecting cards for the game Magic the Gathering.
 
 |Search|Realtime scanning|
 |-|-|
