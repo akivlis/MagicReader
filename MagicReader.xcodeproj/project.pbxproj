@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		3D21902826CD6346007F076A /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21902726CD6346007F076A /* CardComponent.swift */; };
 		3D21902A26CD68AB007F076A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21902926CD68AB007F076A /* ImagePicker.swift */; };
+		3D21902D26CD7695007F076A /* CardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21902C26CD7695007F076A /* CardListViewModel.swift */; };
+		3D5049C726CD9ABA00E073F9 /* CardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049C626CD9ABA00E073F9 /* CardRow.swift */; };
+		3D5049CA26CDA23100E073F9 /* CardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049C926CDA23100E073F9 /* CardDetail.swift */; };
+		3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049CB26CE6E3300E073F9 /* Endpoint.swift */; };
+		3D5049CE26CFA32500E073F9 /* CardDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049CD26CFA32500E073F9 /* CardDetectionService.swift */; };
+		3D5049D026CFACFC00E073F9 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049CF26CFACFC00E073F9 /* CameraPreview.swift */; };
+		3D892FA626CFCC8A00FB367D /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */; };
+		3D892FA926CFD1A600FB367D /* CameraPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */; };
 		3DB34F6D26CC1B270081911C /* MagicReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */; };
 		3DB34F6F26CC1B270081911C /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F6E26CC1B270081911C /* CardListView.swift */; };
 		3DB34F7126CC1B280081911C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB34F7026CC1B280081911C /* Assets.xcassets */; };
@@ -18,6 +26,7 @@
 		3DB34F9526CC1BEC0081911C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F9426CC1BEC0081911C /* SearchBar.swift */; };
 		3DB34F9926CC1C8E0081911C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F9826CC1C8E0081911C /* Card.swift */; };
 		3DB34F9B26CD25530081911C /* ScanCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F9A26CD25530081911C /* ScanCardView.swift */; };
+		3DB590212718B61900FB086D /* StringTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB590202718B61900FB086D /* StringTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,14 @@
 /* Begin PBXFileReference section */
 		3D21902726CD6346007F076A /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		3D21902926CD68AB007F076A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		3D21902C26CD7695007F076A /* CardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModel.swift; sourceTree = "<group>"; };
+		3D5049C626CD9ABA00E073F9 /* CardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRow.swift; sourceTree = "<group>"; };
+		3D5049C926CDA23100E073F9 /* CardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetail.swift; sourceTree = "<group>"; };
+		3D5049CB26CE6E3300E073F9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		3D5049CD26CFA32500E073F9 /* CardDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectionService.swift; sourceTree = "<group>"; };
+		3D5049CF26CFACFC00E073F9 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewViewModel.swift; sourceTree = "<group>"; };
 		3DB34F6926CC1B270081911C /* MagicReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicReaderApp.swift; sourceTree = "<group>"; };
 		3DB34F6E26CC1B270081911C /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
@@ -53,6 +70,7 @@
 		3DB34F9826CC1C8E0081911C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		3DB34F9A26CD25530081911C /* ScanCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCardView.swift; sourceTree = "<group>"; };
 		3DB34F9C26CD43AF0081911C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3DB590202718B61900FB086D /* StringTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +98,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D21902B26CD767E007F076A /* CardList */ = {
+			isa = PBXGroup;
+			children = (
+				3DB34F6E26CC1B270081911C /* CardListView.swift */,
+				3D21902C26CD7695007F076A /* CardListViewModel.swift */,
+				3D5049C626CD9ABA00E073F9 /* CardRow.swift */,
+			);
+			path = CardList;
+			sourceTree = "<group>";
+		};
+		3D5049C826CDA21400E073F9 /* CardDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3D5049C926CDA23100E073F9 /* CardDetail.swift */,
+			);
+			path = CardDetail;
+			sourceTree = "<group>";
+		};
+		3D892FA726CFD17E00FB367D /* CardDetector */ = {
+			isa = PBXGroup;
+			children = (
+				3D5049CF26CFACFC00E073F9 /* CameraPreview.swift */,
+				3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */,
+				3DB590202718B61900FB086D /* StringTracker.swift */,
+			);
+			path = CardDetector;
+			sourceTree = "<group>";
+		};
 		3DB34F6026CC1B270081911C = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +149,18 @@
 		3DB34F6B26CC1B270081911C /* MagicReader */ = {
 			isa = PBXGroup;
 			children = (
+				3D892FA726CFD17E00FB367D /* CardDetector */,
 				3DB34F9C26CD43AF0081911C /* Info.plist */,
+				3D5049CD26CFA32500E073F9 /* CardDetectionService.swift */,
+				3D5049CB26CE6E3300E073F9 /* Endpoint.swift */,
 				3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */,
-				3DB34F9726CC1C750081911C /* Model */,
-				3DB34F9626CC1C130081911C /* View */,
+				3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */,
 				3DB34F7026CC1B280081911C /* Assets.xcassets */,
+				3D5049C826CDA21400E073F9 /* CardDetail */,
+				3D21902B26CD767E007F076A /* CardList */,
+				3DB34F9726CC1C750081911C /* Model */,
 				3DB34F7226CC1B280081911C /* Preview Content */,
+				3DB34F9626CC1C130081911C /* View */,
 			);
 			path = MagicReader;
 			sourceTree = "<group>";
@@ -140,7 +192,6 @@
 		3DB34F9626CC1C130081911C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3DB34F6E26CC1B270081911C /* CardListView.swift */,
 				3DB34F9A26CD25530081911C /* ScanCardView.swift */,
 				3DB34F9426CC1BEC0081911C /* SearchBar.swift */,
 				3D21902926CD68AB007F076A /* ImagePicker.swift */,
@@ -288,11 +339,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D21902826CD6346007F076A /* CardComponent.swift in Sources */,
+				3D5049CA26CDA23100E073F9 /* CardDetail.swift in Sources */,
+				3D5049CE26CFA32500E073F9 /* CardDetectionService.swift in Sources */,
+				3DB590212718B61900FB086D /* StringTracker.swift in Sources */,
 				3DB34F6F26CC1B270081911C /* CardListView.swift in Sources */,
+				3D5049C726CD9ABA00E073F9 /* CardRow.swift in Sources */,
+				3D5049D026CFACFC00E073F9 /* CameraPreview.swift in Sources */,
 				3DB34F6D26CC1B270081911C /* MagicReaderApp.swift in Sources */,
 				3DB34F9526CC1BEC0081911C /* SearchBar.swift in Sources */,
+				3D21902D26CD7695007F076A /* CardListViewModel.swift in Sources */,
 				3D21902A26CD68AB007F076A /* ImagePicker.swift in Sources */,
 				3DB34F9926CC1C8E0081911C /* Card.swift in Sources */,
+				3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */,
+				3D892FA626CFCC8A00FB367D /* ScannerViewController.swift in Sources */,
+				3D892FA926CFD1A600FB367D /* CameraPreviewViewModel.swift in Sources */,
 				3DB34F9B26CD25530081911C /* ScanCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +510,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MagicReader/Preview Content\"";
@@ -466,7 +527,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,6 +535,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = akivlis.MagicReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -485,6 +547,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MagicReader/Preview Content\"";
@@ -501,7 +564,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,6 +572,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = akivlis.MagicReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -524,7 +588,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J9P8F4UWBG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,7 +613,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J9P8F4UWBG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
