@@ -24,6 +24,10 @@ struct Card: Codable, Identifiable {
     let rarity: Rarity
     let prices : PriceSet
 
+    var detailImageURL: URL? {
+        URL(string: self.imageSet?.normal ?? "")
+    }
+
     enum CodingKeys: String, CodingKey {
         case cardId = "id"
         case name

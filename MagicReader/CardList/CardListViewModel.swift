@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 import SwiftUI
+import Moya
+import CombineMoya
 
 class CardListViewModel: ObservableObject {
 
@@ -21,18 +23,20 @@ class CardListViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     private var cancellable: AnyCancellable?
 
-    init(cards: [Card] = []) {
-        self.cards = cards
+    private let cardProvider: MoyaProvider<CardRequest>
 
-        getCards()
+    init(cards: [Card] = [], cardProvider: MoyaProvider<CardRequest> = MoyaProvider<CardRequest>()) {
+        self.cards = cards
+        self.cardProvider = cardProvider
+
+        getRandomCard()
     }
 
-    func getCards() {
-        print("❤️ getting ALL")
-
-        let cardsURLString =  Endpoint.randomCard
-        let url = URL(string: cardsURLString)!
-        fetchCards(from: url)
+    func getRandomCard() {
+        print("❤️ getting Random card")
+        cardProvider
+            .requestPublisher(.randomCard, callbackQueue: .main)
+            .map(Card.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -40,9 +44,9 @@ class CardListViewModel: ObservableObject {
                 case .failure(let error):
                     print("😈" + String(describing: error))
                 }
-            }, receiveValue: { cards in
-                print("cards: \(cards.count)")
-                self.cards = cards
+            }, receiveValue: { card in
+                print("card: \(card)")
+                self.cards = [card]
             })
             .store(in: &cancellables)
     }
@@ -52,6 +56,7 @@ class CardListViewModel: ObservableObject {
         let cardsURLString =  Endpoint.searchCard  + "\(searchedName)"
         guard let url = URL(string: cardsURLString) else { return }
 
+        // todo: stop query if another query starts
         fetchCards(from: url)
             .sink(receiveCompletion: { completion in
                 switch completion {

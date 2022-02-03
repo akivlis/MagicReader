@@ -25,6 +25,7 @@ struct CardListView: View {
             VStack {
                 SearchBar(text: $searchText,
                           onTextChanged: viewModel.searchCards(for:))
+                // add bounce on a second
                     .padding(.bottom, 0.0)
 
                 List(viewModel.cards
@@ -65,13 +66,13 @@ struct CardListView: View {
                 })
                 Text(recognizedText)
             })
-            .onAppear {
-                cameraViewModel.startCamera()
-            }
-            .onDisappear {
-                print("stopping the camera from  list view")
-                cameraViewModel.stopCamera()
-            }
+//            .onAppear {
+//                cameraViewModel.startCamera()
+//            }
+//            .onDisappear {
+//                print("stopping the camera from  list view")
+//                cameraViewModel.stopCamera()
+//            }
             .sheet(isPresented: $showingCardDetail) {
                 if let card = recognizedCard {
                     CardDetail(card: card)
@@ -79,7 +80,9 @@ struct CardListView: View {
             }
             .onAppear {
                 print("CARD LIST VIEW APPEARED")
-                viewModel.getCards()
+                if viewModel.cards.isEmpty {
+                    viewModel.getRandomCard()
+                }
             }
 //            .onReceive(viewModel.fetchedCard, perform: { _ in
 //                self.showingScanningView = false

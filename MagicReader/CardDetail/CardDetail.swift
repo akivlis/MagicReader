@@ -12,78 +12,66 @@ struct CardDetail: View {
 
     var body: some View {
         ZStack {
-//            Color.black.ignoresSafeArea()
             ScrollView {
-            VStack {
-                    AsyncImage(url: URL(string: card.imageSet?.png ?? ""),
-                               transaction: Transaction(animation: .spring())) { phase in
-                        switch phase {
-                        case .empty:
-                            Color.gray.opacity(0.1)
+                VStack {
 
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .scaledToFit()
+                    AsyncImage(url: card.detailImageURL) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(height: 500)
+                    .padding(.horizontal)
+                    .cornerRadius(12)
 
-                        case .failure(_):
-                            ZStack {
-                                Color.gray.opacity(0.1)
-                                Text("No image for this card")
-                            }
-                        @unknown default:
-                            Image(systemName: "exclamationmark.icloud")
+                    VStack(alignment: .leading) {
+                        Text(card.name)
+                            .font(.title)
+                            .foregroundColor(.white)
+
+                        HStack {
+                            Text("SET")
+                            Spacer()
+                            Text(card.setName)
                         }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+
+                        HStack {
+                            Text("ARTIST")
+                            Spacer()
+                            Text(card.artist)
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+
+                        HStack {
+                            Text("RARITY")
+                            Spacer()
+                            Text(card.rarity.rawValue)
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+
+                        Divider()
+
+                        HStack {
+                            Text("Price")
+                            Spacer()
+                            Text((card.prices.euro ?? "") + "€")
+                        }
+                        .font(.headline)
+                        .foregroundColor(.primary)
                     }
-                               .frame(width: 400, height: 500)
-                               .padding(.horizontal)
-                               .cornerRadius(5)
+                    .padding(.horizontal)
 
-                VStack(alignment: .leading) {
-                    Text(card.name)
-                        .font(.title)
-                        .foregroundColor(.white)
-
-                    HStack {
-                        Text("SET")
-                        Spacer()
-                        Text(card.setName)
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-
-                    HStack {
-                        Text("ARTIST")
-                        Spacer()
-                        Text(card.artist)
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-
-                    HStack {
-                        Text("RARITY")
-                        Spacer()
-                        Text(card.rarity.rawValue)
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-
-                    Divider()
-
-                    HStack {
-                        Text("Price")
-                        Spacer()
-                        Text((card.prices.euro ?? "") + "€")
-                    }
-                    .font(.headline)
-                    .foregroundColor(.primary)
+                    Spacer()
                 }
-                .padding()
 
-                Spacer()
-            }
             }.onAppear {
-                print("Downloading image: \(card.imageSet?.borderCrop)")
+                print("Downloading image: \(card.detailImageURL)")
             }
         }
     }

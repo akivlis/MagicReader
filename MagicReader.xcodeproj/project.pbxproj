@@ -15,6 +15,9 @@
 		3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049CB26CE6E3300E073F9 /* Endpoint.swift */; };
 		3D5049CE26CFA32500E073F9 /* CardDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049CD26CFA32500E073F9 /* CardDetectionService.swift */; };
 		3D5049D026CFACFC00E073F9 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5049CF26CFACFC00E073F9 /* CameraPreview.swift */; };
+		3D6778A827A418E300AA93A8 /* CardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6778A727A418E300AA93A8 /* CardRequest.swift */; };
+		3D6778AB27A41AC100AA93A8 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6778AA27A41AC100AA93A8 /* CombineMoya */; };
+		3D6778AD27A41AC100AA93A8 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6778AC27A41AC100AA93A8 /* Moya */; };
 		3D892FA626CFCC8A00FB367D /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */; };
 		3D892FA926CFD1A600FB367D /* CameraPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */; };
 		3DB34F6D26CC1B270081911C /* MagicReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */; };
@@ -55,6 +58,7 @@
 		3D5049CB26CE6E3300E073F9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		3D5049CD26CFA32500E073F9 /* CardDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectionService.swift; sourceTree = "<group>"; };
 		3D5049CF26CFACFC00E073F9 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		3D6778A727A418E300AA93A8 /* CardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRequest.swift; sourceTree = "<group>"; };
 		3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewViewModel.swift; sourceTree = "<group>"; };
 		3DB34F6926CC1B270081911C /* MagicReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6778AD27A41AC100AA93A8 /* Moya in Frameworks */,
+				3D6778AB27A41AC100AA93A8 /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +167,7 @@
 				3DB34F9726CC1C750081911C /* Model */,
 				3DB34F7226CC1B280081911C /* Preview Content */,
 				3DB34F9626CC1C130081911C /* View */,
+				3D6778A727A418E300AA93A8 /* CardRequest.swift */,
 			);
 			path = MagicReader;
 			sourceTree = "<group>";
@@ -224,6 +231,10 @@
 			dependencies = (
 			);
 			name = MagicReader;
+			packageProductDependencies = (
+				3D6778AA27A41AC100AA93A8 /* CombineMoya */,
+				3D6778AC27A41AC100AA93A8 /* Moya */,
+			);
 			productName = MagicReader;
 			productReference = 3DB34F6926CC1B270081911C /* MagicReader.app */;
 			productType = "com.apple.product-type.application";
@@ -296,6 +307,9 @@
 				Base,
 			);
 			mainGroup = 3DB34F6026CC1B270081911C;
+			packageReferences = (
+				3D6778A927A41AC100AA93A8 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 3DB34F6A26CC1B270081911C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -353,6 +367,7 @@
 				3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */,
 				3D892FA626CFCC8A00FB367D /* ScannerViewController.swift in Sources */,
 				3D892FA926CFD1A600FB367D /* CameraPreviewViewModel.swift in Sources */,
+				3D6778A827A418E300AA93A8 /* CardRequest.swift in Sources */,
 				3DB34F9B26CD25530081911C /* ScanCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,6 +730,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3D6778A927A41AC100AA93A8 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D6778AA27A41AC100AA93A8 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D6778A927A41AC100AA93A8 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		3D6778AC27A41AC100AA93A8 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D6778A927A41AC100AA93A8 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DB34F6126CC1B270081911C /* Project object */;
 }
