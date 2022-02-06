@@ -19,72 +19,78 @@ struct CardListView: View {
 
     let cameraViewModel = CameraViewModel()
 
+    var items: [GridItem] {
+        Array(repeating: .init(.flexible()), count: 2)
+    }
+
     var body: some View {
         NavigationView {
-            VStack {
-                SearchBar(text: $viewModel.searchText)
-                    .padding(.bottom, 0.0)
+            ZStack {
+                Color(.secondarySystemBackground)
+                    .ignoresSafeArea()
 
-                List(viewModel.cards)
-                { card in
-                    NavigationLink(destination: CardDetail(card: card)) {
-                        CardRow(card: card)
+                VStack {
+                    SearchBar(text: $viewModel.searchText)
+                        .padding([ .horizontal, .top ], 12)
+
+                    switch viewModel.state {
+                    case .idle:
+                        Color.clear.onAppear(perform: viewModel.getRandomCard)
+
+                    case .loading:
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    case let .loaded(cards):
+                        ScrollView(.vertical, showsIndicators: false) {
+                            LazyVGrid(columns: items, spacing: 10) {
+                                ForEach(cards, id: \.id) { card in
+                                    NavigationLink(destination: CardDetail(card: card)) {
+                                        CardGridItem(card: card)
+                                    }
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
+                        .edgesIgnoringSafeArea(.bottom)
+                    case let .failed(errorMessage):
+                        Text(errorMessage)
+                    }
+
+                }
+                .navigationBarTitle("Single Cards")
+                .toolbar {
+                    Button(action: {
+                        self.showingScanningView = true
+
+                    }) {
+                        Image(systemName: "camera.viewfinder")
+                            .font(.largeTitle)
+                            .foregroundColor(.orange)
                     }
                 }
-                .edgesIgnoringSafeArea(.bottom)
+                .sheet(isPresented: $showingScanningView,
+                       onDismiss: { self.showingScanningView = false },
+                       content: {
 
-                Text(recognizedText)
-                    .padding()
-            }
-            .navigationBarTitle("Single Cards")
-            .toolbar {
-                Button(action: {
-                    self.showingScanningView = true
-
-                }) {
-                    Image(systemName: "camera.viewfinder")
-                        .font(.largeTitle)
-                        .foregroundColor(.orange)
-                }
-            }
-            .sheet(isPresented: $showingScanningView,
-                   onDismiss: { self.showingScanningView = false },
-                   content: {
-
-                CameraPreview(recognizedText: self.$recognizedText,
-                              session: cameraViewModel.session,
-                              onTextDetected: { name, setName in
-                    viewModel.getCard(for: name, setName: setName, onCardFetched: { card in
-                        showingScanningView = false
-                        recognizedCard = card
-                        print(card)
-                        showingCardDetail = true
+                    CameraPreview(recognizedText: self.$recognizedText,
+                                  session: cameraViewModel.session,
+                                  onTextDetected: { name, setName in
+                        viewModel.getCard(for: name, setName: setName, onCardFetched: { card in
+                            showingScanningView = false
+                            recognizedCard = card
+                            print(card)
+                            showingCardDetail = true
+                        })
                     })
+                    Text(recognizedText)
                 })
-                Text(recognizedText)
-            })
-            //            .onAppear {
-            //                cameraViewModel.startCamera()
-            //            }
-            //            .onDisappear {
-            //                print("stopping the camera from  list view")
-            //                cameraViewModel.stopCamera()
-            //            }
-            .sheet(isPresented: $showingCardDetail) {
-                if let card = recognizedCard {
-                    CardDetail(card: card)
+                .sheet(isPresented: $showingCardDetail) {
+                    if let card = recognizedCard {
+                        CardDetail(card: card)
+                    }
                 }
             }
-            .onAppear {
-                print("CARD LIST VIEW APPEARED")
-                if viewModel.cards.isEmpty {
-                    viewModel.getRandomCard()
-                }
-            }
-            //            .onReceive(viewModel.fetchedCard, perform: { _ in
-            //                self.showingScanningView = false
-            //            self.showingcardDetal = true
-            //            })
         }
     }
 }

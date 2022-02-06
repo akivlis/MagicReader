@@ -18,12 +18,12 @@ struct SearchBar: View {
             TextField("Search ...", text: $text)
                 .padding(7)
                 .padding(.horizontal, 25)
-                .background(Color(.systemGray6))
+                .background(Color(.darkGray))
                 .cornerRadius(8)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
+                            .foregroundColor(.primary)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
 

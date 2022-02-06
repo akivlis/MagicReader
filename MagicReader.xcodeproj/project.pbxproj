@@ -18,6 +18,7 @@
 		3D6778A827A418E300AA93A8 /* CardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6778A727A418E300AA93A8 /* CardRequest.swift */; };
 		3D6778AB27A41AC100AA93A8 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6778AA27A41AC100AA93A8 /* CombineMoya */; };
 		3D6778AD27A41AC100AA93A8 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6778AC27A41AC100AA93A8 /* Moya */; };
+		3D6778AF27AFEBA700AA93A8 /* CardGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6778AE27AFEBA700AA93A8 /* CardGridItem.swift */; };
 		3D892FA626CFCC8A00FB367D /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */; };
 		3D892FA926CFD1A600FB367D /* CameraPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */; };
 		3DB34F6D26CC1B270081911C /* MagicReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */; };
@@ -59,6 +60,7 @@
 		3D5049CD26CFA32500E073F9 /* CardDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetectionService.swift; sourceTree = "<group>"; };
 		3D5049CF26CFACFC00E073F9 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		3D6778A727A418E300AA93A8 /* CardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRequest.swift; sourceTree = "<group>"; };
+		3D6778AE27AFEBA700AA93A8 /* CardGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGridItem.swift; sourceTree = "<group>"; };
 		3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewViewModel.swift; sourceTree = "<group>"; };
 		3DB34F6926CC1B270081911C /* MagicReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 				3DB34F6E26CC1B270081911C /* CardListView.swift */,
 				3D21902C26CD7695007F076A /* CardListViewModel.swift */,
 				3D5049C626CD9ABA00E073F9 /* CardRow.swift */,
+				3D6778AE27AFEBA700AA93A8 /* CardGridItem.swift */,
 			);
 			path = CardList;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				3DB590212718B61900FB086D /* StringTracker.swift in Sources */,
 				3DB34F6F26CC1B270081911C /* CardListView.swift in Sources */,
 				3D5049C726CD9ABA00E073F9 /* CardRow.swift in Sources */,
+				3D6778AF27AFEBA700AA93A8 /* CardGridItem.swift in Sources */,
 				3D5049D026CFACFC00E073F9 /* CameraPreview.swift in Sources */,
 				3DB34F6D26CC1B270081911C /* MagicReaderApp.swift in Sources */,
 				3DB34F9526CC1BEC0081911C /* SearchBar.swift in Sources */,

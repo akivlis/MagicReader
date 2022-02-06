@@ -17,9 +17,17 @@ class CardListViewModel: ObservableObject {
         case statusCode
     }
 
+    enum CardListState {
+        case idle
+        case loading
+        case loaded([Card])
+        case failed(String)
+    }
+
     @Published var cards: [Card] = []
     @Published var recognizedCard: Card?
     @Published var searchText: String = String()
+    @Published private(set) var state = CardListState.idle
 
     var cancellables = Set<AnyCancellable>()
     private var cancellable: AnyCancellable?
@@ -30,47 +38,49 @@ class CardListViewModel: ObservableObject {
         self.cardProvider = cardProvider
 
         setupBinding()
-
-        getRandomCard()
     }
 
     func getRandomCard() {
         cardProvider
             .requestPublisher(.randomCard, callbackQueue: .main)
             .map(Card.self)
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
                     print("😈" + String(describing: error))
+                    self?.state = .failed(error.localizedDescription)
                 }
-            }, receiveValue: { card in
-                self.cards = [card]
+            }, receiveValue: { [weak self] card in
+                self?.state = .loaded([card])
             })
             .store(in: &cancellables)
     }
 
     func searchCards(for searchedName: String) {
-        print("❤️ getting cards for: \(searchedName)")
+        state = .loading
 
         cardProvider
             .requestPublisher(.searchCards(named: searchedName, unique: true), callbackQueue: .main)
             .map(CardResponse.self)
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
                     print("😈" + String(describing: error))
+                    self?.state = .failed(error.localizedDescription)
                 }
-            }, receiveValue: { cardResponse in
-                guard let cards = cardResponse.cards else {
+            }, receiveValue: { [weak self] cardResponse in
+                guard let self = self,
+                      let cards = cardResponse.cards
+                else {
                     print("❗️ no cards downloaded for: \(searchedName)")
                     return
                 }
                 print("cards: \(cards.count)")
-                self.cards = cards
+                self.state = .loaded(cards)
             })
             .store(in: &cancellables)
     }
@@ -116,7 +126,8 @@ private extension CardListViewModel {
             .removeDuplicates()
             .map { (string) -> String? in
                 if string.count < 1 {
-//                    self.cards = []
+                    // uncomment if want to remove search result if search text is empty
+                     self.cards = []
                     return nil
                 }
                 return string

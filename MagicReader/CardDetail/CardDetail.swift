@@ -20,17 +20,17 @@ struct CardDetail: View {
                         image
                             .resizable()
                             .scaledToFit()
+                            .cornerRadius(10)
                     } placeholder: {
                         ProgressView()
                     }
                     .frame(height: 500)
                     .padding(.horizontal)
-                    .cornerRadius(12)
 
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 6) {
                         Text(card.name)
                             .font(.title)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
 
                         HStack {
                             Text("SET")
@@ -74,13 +74,10 @@ struct CardDetail: View {
                         .font(.headline)
                         .foregroundColor(.primary)
                     }
-                    .padding(.horizontal)
+                    .padding(.all)
 
                     Spacer()
                 }
-
-            }.onAppear {
-                print("Downloading image: \(card.detailImageURL)")
             }
         }
     }

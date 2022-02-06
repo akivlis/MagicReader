@@ -26,7 +26,7 @@ struct Card: Codable, Identifiable {
     let reserved: Bool
 
     var detailImageURL: URL? {
-        URL(string: self.imageSet?.normal ?? "")
+        URL(string: self.imageSet?.borderCrop ?? "")
     }
 
     enum CodingKeys: String, CodingKey {
