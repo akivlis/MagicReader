@@ -19,21 +19,22 @@ class CardListViewModel: ObservableObject {
 
     @Published var cards: [Card] = []
     @Published var recognizedCard: Card?
+    @Published var searchText: String = String()
 
     var cancellables = Set<AnyCancellable>()
     private var cancellable: AnyCancellable?
-
     private let cardProvider: MoyaProvider<CardRequest>
 
     init(cards: [Card] = [], cardProvider: MoyaProvider<CardRequest> = MoyaProvider<CardRequest>()) {
         self.cards = cards
         self.cardProvider = cardProvider
 
+        setupBinding()
+
         getRandomCard()
     }
 
     func getRandomCard() {
-        print("❤️ getting Random card")
         cardProvider
             .requestPublisher(.randomCard, callbackQueue: .main)
             .map(Card.self)
@@ -45,7 +46,6 @@ class CardListViewModel: ObservableObject {
                     print("😈" + String(describing: error))
                 }
             }, receiveValue: { card in
-                print("card: \(card)")
                 self.cards = [card]
             })
             .store(in: &cancellables)
@@ -53,11 +53,10 @@ class CardListViewModel: ObservableObject {
 
     func searchCards(for searchedName: String) {
         print("❤️ getting cards for: \(searchedName)")
-        let cardsURLString =  Endpoint.searchCard  + "\(searchedName)"
-        guard let url = URL(string: cardsURLString) else { return }
 
-        // todo: stop query if another query starts
-        fetchCards(from: url)
+        cardProvider
+            .requestPublisher(.searchCards(named: searchedName, unique: true), callbackQueue: .main)
+            .map(CardResponse.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -65,25 +64,26 @@ class CardListViewModel: ObservableObject {
                 case .failure(let error):
                     print("😈" + String(describing: error))
                 }
-            }, receiveValue: { cards in
+            }, receiveValue: { cardResponse in
+                guard let cards = cardResponse.cards else {
+                    print("❗️ no cards downloaded for: \(searchedName)")
+                    return
+                }
                 print("cards: \(cards.count)")
                 self.cards = cards
             })
             .store(in: &cancellables)
     }
 
+    // move this to its own tab
     func getCard(for recognizedName: String, setName: String, onCardFetched: @escaping (Card) -> ()) {
         guard recognizedName.count > 9 else { return }
         print("❤️ fetch cards for: \(recognizedName)")
         let name = recognizedName.filter {!$0.isWhitespace}.lowercased()
 
-//        let url = Endpoint.searchCard  + "\(name)+s%3A\(setName)"
-        let url = Endpoint.searchCard  + "\(name)"
-
-        print("url: \(url)")
-        guard let url = URL(string: url) else { return }
-
-        fetchCards(from: url)
+        cardProvider
+            .requestPublisher(.searchCards(named: name, unique: true), callbackQueue: .main)
+            .map(CardResponse.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -91,8 +91,11 @@ class CardListViewModel: ObservableObject {
                 case .failure(let error):
                     print("😈" + String(describing: error))
                 }
-            }, receiveValue: { cards in
-                print("cards: \(cards.count)")
+            }, receiveValue: { cardResponse in
+                guard let cards = cardResponse.cards else {
+                    print("no cards downloaded")
+                    return
+                }
 
                 cards.forEach { card in
                     print("🚀 card: \(card.name) \(card.setName), \(card.type)")
@@ -106,12 +109,24 @@ class CardListViewModel: ObservableObject {
 
 private extension CardListViewModel {
 
-    func fetchCards(from url: URL) -> AnyPublisher<[Card], Error> {
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: CardResponse.self, decoder: JSONDecoder())
-            .receive(on: RunLoop.main)
-            .compactMap { $0.cards }
-            .eraseToAnyPublisher()
+    func setupBinding() {
+        $searchText
+            .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
+            .removeDuplicates()
+            .map { (string) -> String? in
+                if string.count < 1 {
+                    self.cards = []
+                    return nil
+                }
+                return string
+            }
+            .compactMap{ $0 }
+            .sink { (_) in
+                //
+            } receiveValue: { [weak self] searchText in
+                print("🔎 searched for: \(searchText)")
+                self?.searchCards(for: searchText)
+            }
+            .store(in: &cancellables)
     }
 }

@@ -11,7 +11,6 @@ struct CardListView: View {
 
     @ObservedObject var viewModel : CardListViewModel
 
-    @State private var searchText = ""
     @State private var showingScanningView = false
     @State private var showingCardDetail = false
     @State private var recognizedText = ""
@@ -23,18 +22,16 @@ struct CardListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $searchText,
-                          onTextChanged: viewModel.searchCards(for:))
-                // add bounce on a second
+                SearchBar(text: $viewModel.searchText)
                     .padding(.bottom, 0.0)
 
-                List(viewModel.cards
-                        .filter { searchText.isEmpty ? true : $0.name.contains(searchText) }) { card in
+                List(viewModel.cards)
+                { card in
                     NavigationLink(destination: CardDetail(card: card)) {
                         CardRow(card: card)
                     }
                 }
-                        .edgesIgnoringSafeArea(.bottom)
+                .edgesIgnoringSafeArea(.bottom)
 
                 Text(recognizedText)
                     .padding()
@@ -66,13 +63,13 @@ struct CardListView: View {
                 })
                 Text(recognizedText)
             })
-//            .onAppear {
-//                cameraViewModel.startCamera()
-//            }
-//            .onDisappear {
-//                print("stopping the camera from  list view")
-//                cameraViewModel.stopCamera()
-//            }
+            //            .onAppear {
+            //                cameraViewModel.startCamera()
+            //            }
+            //            .onDisappear {
+            //                print("stopping the camera from  list view")
+            //                cameraViewModel.stopCamera()
+            //            }
             .sheet(isPresented: $showingCardDetail) {
                 if let card = recognizedCard {
                     CardDetail(card: card)
@@ -84,10 +81,10 @@ struct CardListView: View {
                     viewModel.getRandomCard()
                 }
             }
-//            .onReceive(viewModel.fetchedCard, perform: { _ in
-//                self.showingScanningView = false
-//            self.showingcardDetal = true
-//            })
+            //            .onReceive(viewModel.fetchedCard, perform: { _ in
+            //                self.showingScanningView = false
+            //            self.showingcardDetal = true
+            //            })
         }
     }
 }
@@ -105,7 +102,8 @@ struct ContentView_Previews: PreviewProvider {
                  imageSet: ImageSet(borderCrop: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"),
                  colors: ["W"],
                  rarity: .common,
-                 prices: PriceSet()),
+                 prices: PriceSet(),
+                 reserved: false),
             Card(cardId: "123",
                  name: "Ancestor's Chosen",
                  type: "Creature — Human Cleric",
@@ -115,7 +113,8 @@ struct ContentView_Previews: PreviewProvider {
                  imageSet: ImageSet(borderCrop: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"),
                  colors: ["W"],
                  rarity: .common,
-                 prices: PriceSet(euro: "5 euro"))
+                 prices: PriceSet(euro: "5 euro"),
+                 reserved: false)
         ]
         let view = CardListView(viewModel: CardListViewModel(cards: cards))
         return view

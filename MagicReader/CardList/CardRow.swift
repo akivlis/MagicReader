@@ -57,7 +57,8 @@ struct CardRow_Previews: PreviewProvider {
                         imageSet: ImageSet(png: "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/d/6da045f8-6278-4c84-9d39-025adf0789c1.jpg?1562404626"),
                         colors: ["W"],
                         rarity: .common,
-                        prices: PriceSet(euro: "5"))
+                        prices: PriceSet(euro: "5"),
+                        reserved: false)
         CardRow(card: card)
             .previewLayout(.fixed(width: 400, height: 100))
     }
