@@ -42,8 +42,6 @@ struct CardGridItem: View {
                     Text((card.prices.euro ?? "") + "€")
                         .font(.caption)
                 }
-
-//                Spacer()
             }
         }
     }

@@ -54,9 +54,10 @@ struct CardListView: View {
                         }
                         .edgesIgnoringSafeArea(.bottom)
                     case let .failed(errorMessage):
+                        Spacer()
                         Text(errorMessage)
+                        Spacer()
                     }
-
                 }
                 .navigationBarTitle("Single Cards")
                 .toolbar {

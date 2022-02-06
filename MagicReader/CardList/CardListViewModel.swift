@@ -24,7 +24,6 @@ class CardListViewModel: ObservableObject {
         case failed(String)
     }
 
-    @Published var cards: [Card] = []
     @Published var recognizedCard: Card?
     @Published var searchText: String = String()
     @Published private(set) var state = CardListState.idle
@@ -34,7 +33,9 @@ class CardListViewModel: ObservableObject {
     private let cardProvider: MoyaProvider<CardRequest>
 
     init(cards: [Card] = [], cardProvider: MoyaProvider<CardRequest> = MoyaProvider<CardRequest>()) {
-        self.cards = cards
+        if cards.count > 0 {
+            self.state = .loaded(cards)
+        }
         self.cardProvider = cardProvider
 
         setupBinding()
@@ -77,6 +78,7 @@ class CardListViewModel: ObservableObject {
                       let cards = cardResponse.cards
                 else {
                     print("❗️ no cards downloaded for: \(searchedName)")
+                    self?.state = .failed("No card matching the name")
                     return
                 }
                 print("cards: \(cards.count)")
@@ -124,13 +126,12 @@ private extension CardListViewModel {
             .dropFirst()
             .debounce(for: .milliseconds(800), scheduler: RunLoop.main)
             .removeDuplicates()
-            .map { (string) -> String? in
-                if string.count < 1 {
-                    // uncomment if want to remove search result if search text is empty
-                     self.cards = []
+            .map { [weak self] searchText -> String? in
+                if searchText.count < 1 {
+                    self?.state = .loaded([])
                     return nil
                 }
-                return string
+                return searchText
             }
             .compactMap{ $0 }
             .sink { (_) in
