@@ -23,6 +23,7 @@ struct Card: Codable, Identifiable {
     var artist: String = ""
     let rarity: Rarity
     let prices : PriceSet
+    let reserved: Bool
 
     var detailImageURL: URL? {
         URL(string: self.imageSet?.normal ?? "")
@@ -40,6 +41,7 @@ struct Card: Codable, Identifiable {
         case artist
         case rarity
         case prices
+        case reserved
     }
 }
 

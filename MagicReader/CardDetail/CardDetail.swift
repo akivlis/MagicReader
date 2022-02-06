@@ -12,6 +12,7 @@ struct CardDetail: View {
 
     var body: some View {
         ZStack {
+            Color.black
             ScrollView {
                 VStack {
 
@@ -55,6 +56,14 @@ struct CardDetail: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
 
+                        HStack {
+                            Text("Reserved List:")
+                            Spacer()
+                            Text(card.reserved ? "✅" : "❌")
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+
                         Divider()
 
                         HStack {
@@ -89,7 +98,8 @@ struct CardDetail_Previews: PreviewProvider {
                         colors: ["W"],
                         artist: "Silvi",
                         rarity: .common,
-                        prices: PriceSet())
+                        prices: PriceSet(),
+                        reserved: false)
         CardDetail(card: card)
     }
 }
