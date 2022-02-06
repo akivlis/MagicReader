@@ -11,7 +11,7 @@ import SwiftUI
 struct MagicReaderApp: App {
     var body: some Scene {
         WindowGroup {
-            CardListView(viewModel: CardListViewModel())
+           MainView()
         }
     }
 }

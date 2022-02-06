@@ -11,7 +11,4 @@ enum Endpoint {
 
     static let basicURL = "https://api.scryfall.com"
 
-    static let randomCard = basicURL + "/cards/random"
-
-    static let searchCard = basicURL + "/cards/search?q="
 }
