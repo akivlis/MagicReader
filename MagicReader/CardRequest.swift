@@ -42,21 +42,17 @@ extension CardRequest: TargetType, Equatable {
         case .randomCard:
             return .requestPlain
         case let .card(name):
-
             let urlParameters: [String: Any] = [
                 "exact": name
             ]
             return .requestParameters(parameters: urlParameters, encoding: URLEncoding.default)
-//            return .requestCompositeParameters(bodyParameters: [String : Any](), bodyEncoding: JSONEncoding.default, urlParameters: urlParameters)
         case let .searchCards(name, unique):
-            var params: [String: Any] = [
-                "q": name
+            let params: [String: Any] = [
+                "q": name,
+                "unique": unique ? "art" : "cards"
             ]
-//            if unique {
-//                params["unique"] = unwrappedPurchase
-//            }
             return .requestParameters(parameters: params,
-                                      encoding: JSONEncoding.default)
+                                      encoding: URLEncoding.queryString)
         }
     }
 
