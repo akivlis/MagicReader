@@ -111,18 +111,18 @@ private extension CardListViewModel {
 
     func setupBinding() {
         $searchText
-            .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
+            .dropFirst()
+            .debounce(for: .milliseconds(800), scheduler: RunLoop.main)
             .removeDuplicates()
             .map { (string) -> String? in
                 if string.count < 1 {
-                    self.cards = []
+//                    self.cards = []
                     return nil
                 }
                 return string
             }
             .compactMap{ $0 }
             .sink { (_) in
-                //
             } receiveValue: { [weak self] searchText in
                 print("🔎 searched for: \(searchText)")
                 self?.searchCards(for: searchText)
