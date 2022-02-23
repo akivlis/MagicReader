@@ -59,7 +59,10 @@ struct CardGridItem_Previews: PreviewProvider {
                         colors: ["W"],
                         rarity: .common,
                         prices: PriceSet(euro: "5"),
-                        reserved: false)
+                        isReserved: false,
+                        printsSearchURI: nil
+//                        legalities: ["standard" : .legal]
+        )
         CardGridItem(card: card)
             .previewLayout(.sizeThatFits)
     }

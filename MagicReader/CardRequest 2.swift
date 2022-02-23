@@ -47,9 +47,9 @@ extension CardRequest: TargetType, Equatable {
             ]
             return .requestParameters(parameters: urlParameters, encoding: URLEncoding.default)
         case let .searchCards(name, unique):
-            let params: [String: Any] = [
+            var params: [String: Any] = [
                 "q": name,
-                "unique": unique ? "prints" : "cards"
+                "unique": "art"
             ]
             return .requestParameters(parameters: params,
                                       encoding: URLEncoding.queryString)

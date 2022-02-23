@@ -12,76 +12,109 @@ struct CardDetail: View {
 
     var body: some View {
         ZStack {
-            Color.black
-            ScrollView {
-                VStack {
+            Color(.secondarySystemBackground).ignoresSafeArea()
+            ScrollView(.vertical, showsIndicators: false) {
 
+                GeometryReader { geometry in
                     AsyncImage(url: card.detailImageURL) { image in
                         image
                             .resizable()
                             .scaledToFit()
+                            .frame(width: geometry.size.width, height: geometry.size.height)
                             .cornerRadius(10)
                     } placeholder: {
                         ProgressView()
                     }
-                    .frame(height: 500)
-                    .padding(.horizontal)
+                }
+                .frame(height: 400)
+                .cornerRadius(10)
 
-                    VStack(alignment: .leading, spacing: 6) {
+                VStack {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text(card.name)
-                            .font(.title)
+                            .font(.title.bold())
+                            .foregroundColor(.primary)
+                            .padding(.bottom)
+
+                        Text(card.type)
+                            .font(.headline)
                             .foregroundColor(.primary)
 
-                        HStack {
-                            Text("SET")
-                            Spacer()
-                            Text(card.setName)
-                        }
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-
-                        HStack {
-                            Text("ARTIST")
-                            Spacer()
-                            Text(card.artist)
-                        }
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-
-                        HStack {
-                            Text("RARITY")
-                            Spacer()
-                            Text(card.rarity.rawValue)
-                        }
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-
-                        HStack {
-                            Text("Reserved List:")
-                            Spacer()
-                            Text(card.reserved ? "✅" : "❌")
-                        }
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        Text("Illustrated by \( card.artist)")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                            .padding(.bottom)
 
                         Divider()
+                            .padding(.bottom)
 
-                        HStack {
-                            Text("Price")
-                            Spacer()
-                            Text((card.prices.euro ?? "") + "€")
+                        VStack(alignment: .leading, spacing: 4) {
+                            HStack {
+                                Text("Set")
+                                Spacer()
+                                Text(card.setName)
+                            }
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+
+
+                            HStack {
+                                Text("Rarity")
+                                Spacer()
+                                Text(card.rarity.rawValue)
+                            }
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+
+                            HStack {
+                                Text("Reserved List:")
+                                Spacer()
+                                Text(card.isReserved ? "✔️" : "❌")
+                            }
+                            .font(.headline)
+                            .foregroundColor(.secondary)
                         }
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                    }
-                    .padding(.all)
 
-                    Spacer()
+                        Divider()
+                            .padding(.top)
+
+                        Group {
+                            VStack(alignment: .leading, spacing: 6.0) {
+                                HStack {
+                                    Text("Price")
+                                    Spacer()
+                                    Text(card.prices.euro == nil ? "-" : (card.prices.euro! + "€"))
+                                }
+                                .font(.headline)
+                                .foregroundColor(.primary)
+
+                                HStack {
+                                    Text("Euro foil")
+                                    Spacer()
+                                    Text(card.prices.euroFoil == nil ? "-" : (card.prices.euroFoil! + "€"))
+                                }
+                                .font(.headline)
+                                .foregroundColor(.primary)
+
+                                NavigationLink(destination: PrintListView(viewModel: PrintListViewModel(printURLString: card.printsSearchURI ?? ""))) {
+                                    Text("Show all prints")
+                                }
+                            }
+                            .padding(.top)
+
+                        }
+                    }
+                    .padding(.top)
+
                 }
+                .padding(.all)
+
+                Spacer()
             }
         }
     }
 }
+
 
 struct CardDetail_Previews: PreviewProvider {
     static var previews: some View {
@@ -96,7 +129,10 @@ struct CardDetail_Previews: PreviewProvider {
                         artist: "Silvi",
                         rarity: .common,
                         prices: PriceSet(),
-                        reserved: false)
+                        isReserved: false,
+                        printsSearchURI: nil
+                        //                        legalities: ["standard" : .legal]
+        )
         CardDetail(card: card)
     }
 }

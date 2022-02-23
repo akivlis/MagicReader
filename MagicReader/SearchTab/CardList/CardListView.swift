@@ -11,12 +11,6 @@ struct CardListView: View {
 
     @ObservedObject var viewModel : CardListViewModel
 
-    @State private var showingScanningView = false
-    @State private var showingCardDetail = false
-    @State private var recognizedText = ""
-    @State private var inputImage: UIImage?
-    @State private var recognizedCard: Card?
-
     let cameraViewModel = CameraViewModel()
 
     var items: [GridItem] {
@@ -50,6 +44,7 @@ struct CardListView: View {
                                     }
                                 }
                             }
+                            .padding(.bottom, 90) // content inset
                             .padding(.horizontal)
                         }
                         .edgesIgnoringSafeArea(.bottom)
@@ -60,37 +55,6 @@ struct CardListView: View {
                     }
                 }
                 .navigationBarTitle("Single Cards")
-                .toolbar {
-                    Button(action: {
-                        self.showingScanningView = true
-
-                    }) {
-                        Image(systemName: "camera.viewfinder")
-                            .font(.largeTitle)
-                            .foregroundColor(.orange)
-                    }
-                }
-                .sheet(isPresented: $showingScanningView,
-                       onDismiss: { self.showingScanningView = false },
-                       content: {
-
-                    CameraPreview(recognizedText: self.$recognizedText,
-                                  session: cameraViewModel.session,
-                                  onTextDetected: { name, setName in
-                        viewModel.getCard(for: name, setName: setName, onCardFetched: { card in
-                            showingScanningView = false
-                            recognizedCard = card
-                            print(card)
-                            showingCardDetail = true
-                        })
-                    })
-                    Text(recognizedText)
-                })
-                .sheet(isPresented: $showingCardDetail) {
-                    if let card = recognizedCard {
-                        CardDetail(card: card)
-                    }
-                }
             }
         }
     }
@@ -110,7 +74,10 @@ struct ContentView_Previews: PreviewProvider {
                  colors: ["W"],
                  rarity: .common,
                  prices: PriceSet(),
-                 reserved: false),
+                 isReserved: false,
+                 printsSearchURI: nil
+//                 legalities: ["standard" : .legal]
+                ),
             Card(cardId: "123",
                  name: "Ancestor's Chosen",
                  type: "Creature — Human Cleric",
@@ -121,7 +88,10 @@ struct ContentView_Previews: PreviewProvider {
                  colors: ["W"],
                  rarity: .common,
                  prices: PriceSet(euro: "5 euro"),
-                 reserved: false)
+                 isReserved: false,
+                 printsSearchURI: nil
+//                 legalities: ["standard" : .legal]
+                )
         ]
         let view = CardListView(viewModel: CardListViewModel(cards: cards))
         return view

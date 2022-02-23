@@ -58,7 +58,10 @@ struct CardRow_Previews: PreviewProvider {
                         colors: ["W"],
                         rarity: .common,
                         prices: PriceSet(euro: "5"),
-                        reserved: false)
+                        isReserved: false,
+                        printsSearchURI: nil
+//                        legalities: ["standard" : .legal]
+        )
         CardRow(card: card)
             .previewLayout(.fixed(width: 400, height: 100))
     }

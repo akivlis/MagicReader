@@ -128,7 +128,8 @@ private extension CardListViewModel {
             .removeDuplicates()
             .map { [weak self] searchText -> String? in
                 if searchText.count < 1 {
-                    self?.state = .loaded([])
+                    // clear results if no search text
+//                    self?.state = .loaded([])
                     return nil
                 }
                 return searchText

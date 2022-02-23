@@ -14,9 +14,7 @@ import CoreML
 struct CameraPreview: UIViewRepresentable {
 
     @Environment(\.presentationMode) var presentationMode
-    @Binding var recognizedText: String
-    let session : AVCaptureSession
-    var onTextDetected: ((String, String)) -> Void
+    private let session = AVCaptureSession()
 
     class VideoPreviewView: UIView {
         override class var layerClass: AnyClass {
@@ -32,7 +30,7 @@ struct CameraPreview: UIViewRepresentable {
 
     func makeCoordinator() -> Coordinator {
         Coordinator(session: session,
-                    recognizedText: $recognizedText,
+                    recognizedText: .constant(""),
                     parent: self)
     }
 
@@ -206,7 +204,7 @@ struct CameraPreview: UIViewRepresentable {
         func showCardText(name: String, number: String) {
             //        self.recognizedText.wrappedValue = processedText
             session.stopRunning()
-            parent.onTextDetected((name, number))
+//            parent.onTextDetected((name, number))
         }
 
 

@@ -23,7 +23,9 @@ struct Card: Codable, Identifiable {
     var artist: String = ""
     let rarity: Rarity
     let prices : PriceSet
-    let reserved: Bool
+    let isReserved: Bool
+    let printsSearchURI: String?
+//    let legalities: [String: Legality] = [:]
 
     var detailImageURL: URL? {
         URL(string: self.imageSet?.borderCrop ?? "")
@@ -31,9 +33,9 @@ struct Card: Codable, Identifiable {
 
     enum CodingKeys: String, CodingKey {
         case cardId = "id"
-        case name
+        case name 
         case type = "type_line"
-        case text
+        case text = "oracle_text"
         case setName = "set_name"
         case power
         case imageSet = "image_uris"
@@ -41,7 +43,9 @@ struct Card: Codable, Identifiable {
         case artist
         case rarity
         case prices
-        case reserved
+        case isReserved = "reserved"
+        case printsSearchURI = "prints_search_uri"
+//        case legalities
     }
 }
 
@@ -91,6 +95,17 @@ struct PriceSet: Codable {
 
 enum Rarity: String, Codable {
     case common, uncommon, rare, special, mythic, bonus
+}
+
+enum Legality: String, Codable {
+    case legal, notLegal, restricted, banned
+
+    enum CodingKeys: String, CodingKey {
+        case legal
+        case notLegal = "not_legal"
+        case restricted
+        case banned
+    }
 }
 
 
