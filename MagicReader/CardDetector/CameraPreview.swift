@@ -72,6 +72,8 @@ struct CameraPreview: UIViewRepresentable {
             super.init()
 
             configureCamera()
+
+            session.startRunning()
         }
 
         fileprivate func configureCamera() {
@@ -159,9 +161,9 @@ struct CameraPreview: UIViewRepresentable {
                         setCode = String(setComponent.text.prefix(3))
                     }
                     let processedText = "🐉 name: \(name) \n number: \(number) \n setCode: \(setCode) \n"
+                    print("processedText: \(processedText)")
                     self.recognizedText.wrappedValue = processedText
-                    //                    self.parent.onTextDetected((name, number))
-                    //                    print(processedText)
+//                    self.parent.onTextDetected((name, number))
 
                     // Log any found numbers.
                     self.nameTracker.logFrame(strings: [name])
@@ -202,7 +204,7 @@ struct CameraPreview: UIViewRepresentable {
 
 
         func showCardText(name: String, number: String) {
-            //        self.recognizedText.wrappedValue = processedText
+//            self.recognizedText.wrappedValue = processedText
             session.stopRunning()
 //            parent.onTextDetected((name, number))
         }

@@ -180,6 +180,33 @@
 			path = PrintList;
 			sourceTree = "<group>";
 		};
+		3DA8E6D1280353A7007D9ADC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3D6778A727A418E300AA93A8 /* CardRequest.swift */,
+				3D5049CD26CFA32500E073F9 /* CardDetectionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3DA8E6D2280353BC007D9ADC /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3D5049CB26CE6E3300E073F9 /* Endpoint.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		3DA8E6D3280353D1007D9ADC /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3D6778B227B0696800AA93A8 /* SearchTab */,
+				3D6778B327B0698D00AA93A8 /* ScanTab */,
+				3D6778B627B06A5400AA93A8 /* LibraryTab */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		3DB34F6026CC1B270081911C = {
 			isa = PBXGroup;
 			children = (
@@ -204,19 +231,16 @@
 			isa = PBXGroup;
 			children = (
 				3DB34F9C26CD43AF0081911C /* Info.plist */,
-				3D5049CD26CFA32500E073F9 /* CardDetectionService.swift */,
-				3D6778A727A418E300AA93A8 /* CardRequest.swift */,
-				3D5049CB26CE6E3300E073F9 /* Endpoint.swift */,
 				3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */,
 				3D6778B027B068C000AA93A8 /* MainView.swift */,
 				3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */,
 				3DB34F7026CC1B280081911C /* Assets.xcassets */,
 				3D892FA726CFD17E00FB367D /* CardDetector */,
-				3D6778B627B06A5400AA93A8 /* LibraryTab */,
+				3DA8E6D2280353BC007D9ADC /* Constants */,
+				3DA8E6D3280353D1007D9ADC /* Features */,
 				3DB34F9726CC1C750081911C /* Model */,
 				3DB34F7226CC1B280081911C /* Preview Content */,
-				3D6778B327B0698D00AA93A8 /* ScanTab */,
-				3D6778B227B0696800AA93A8 /* SearchTab */,
+				3DA8E6D1280353A7007D9ADC /* Services */,
 				3DB34F9626CC1C130081911C /* View */,
 			);
 			path = MagicReader;
