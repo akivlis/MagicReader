@@ -15,7 +15,7 @@ struct MainView: View {
                     Label("Search", systemImage: "magnifyingglass")
                 }
 
-            CameraPreview()
+            ScannerView()
                 .tabItem {
                     Label("Scan", systemImage: "camera.viewfinder")
                 }

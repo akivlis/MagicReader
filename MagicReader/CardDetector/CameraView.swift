@@ -11,7 +11,7 @@ import Vision
 import AVFoundation
 import CoreML
 
-struct CameraPreview: UIViewRepresentable {
+struct CameraView: UIViewRepresentable {
 
     @Environment(\.presentationMode) var presentationMode
     private let session = AVCaptureSession()
@@ -46,25 +46,20 @@ struct CameraPreview: UIViewRepresentable {
     func updateUIView(_ uiView: VideoPreviewView, context: Context) {
 
     }
-    //    // MARK: - Public
-    //
-    //    func startCamera() {
-    //        session.startRunning()
-    //    }
 
     // MARK: - Coordinator
 
     class Coordinator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
 
         var recognizedText: Binding<String>
-        var parent: CameraPreview
+        var parent: CameraView
         var session: AVCaptureSession
         let detectionService = CardDetectionService()
         let nameTracker = StringTracker()
 
         init(session: AVCaptureSession,
              recognizedText: Binding<String>,
-             parent: CameraPreview) {
+             parent: CameraView) {
             self.session = session
             self.recognizedText = recognizedText
             self.parent = parent
@@ -170,6 +165,12 @@ struct CameraPreview: UIViewRepresentable {
                     //                    show(boxGroups: [(color: UIColor.red.cgColor, boxes: redBoxes), (color: UIColor.green.cgColor, boxes: greenBoxes)])
 
                     // Check if we have any temporally stable names.
+                    if let sureName = self.nameTracker.getStableString() {
+                        self.showCardText(name: sureName, number: number)
+                        self.nameTracker.reset(string: sureName)
+                    }
+
+                    // Check if we have any temporally stable sets.
                     if let sureName = self.nameTracker.getStableString() {
                         self.showCardText(name: sureName, number: number)
                         self.nameTracker.reset(string: sureName)
