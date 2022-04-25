@@ -13,7 +13,7 @@ struct CardRow: View {
     var body: some View {
         HStack {
             HStack {
-                    AsyncImage(url: URL(string: card.imageSet?.small ?? "")) { phase in
+                AsyncImage(url: URL(string: (card.imageSet?.small ?? card.cardFaces?.first?.imageSet?.small) ?? "")) { phase in
                         switch phase {
                         case .empty:
                             Color.gray.opacity(0.1)
@@ -55,6 +55,7 @@ struct CardRow_Previews: PreviewProvider {
                         setName: "Adventures in the Forgotten Realms",
                         power: "4",
                         imageSet: ImageSet(png: "https://c1.scryfall.com/file/scryfall-cards/border_crop/front/6/d/6da045f8-6278-4c84-9d39-025adf0789c1.jpg?1562404626"),
+                        cardFaces: nil,
                         colors: ["W"],
                         rarity: .common,
                         prices: PriceSet(euro: "5"),

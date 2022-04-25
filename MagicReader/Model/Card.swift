@@ -19,6 +19,7 @@ struct Card: Codable, Identifiable {
     let setName: String
     let power: String?
     let imageSet: ImageSet?
+    let cardFaces: [CardFace]?
     let colors: [String]?
     var artist: String = ""
     let rarity: Rarity
@@ -27,8 +28,19 @@ struct Card: Codable, Identifiable {
     let printsSearchURI: String?
 //    let legalities: [String: Legality] = [:]
 
-    var detailImageURL: URL? {
-        URL(string: self.imageSet?.borderCrop ?? "")
+    var detailImageURLs: [URL]? {
+        if let set = self.imageSet {
+            guard let imageUrl = URL(string: set.borderCrop ?? "") else {
+                return nil
+            }
+            return [imageUrl]
+        }
+        if let cardFaces = self.cardFaces {
+            return cardFaces
+                .compactMap { $0.imageSet?.borderCrop }
+                .compactMap { URL(string: $0)}
+        }
+        return nil
     }
 
     enum CodingKeys: String, CodingKey {
@@ -39,6 +51,7 @@ struct Card: Codable, Identifiable {
         case setName = "set_name"
         case power
         case imageSet = "image_uris"
+        case cardFaces = "card_faces"
         case colors
         case artist
         case rarity
@@ -90,6 +103,18 @@ struct PriceSet: Codable {
         case euro = "eur"
         case tix
         case euroFoil = "eur_foil"
+    }
+}
+
+struct CardFace: Codable {
+    let imageSet: ImageSet?
+    let name: String
+    var artist: String = ""
+
+    enum CodingKeys: String, CodingKey {
+        case imageSet = "image_uris"
+        case name
+        case artist
     }
 }
 

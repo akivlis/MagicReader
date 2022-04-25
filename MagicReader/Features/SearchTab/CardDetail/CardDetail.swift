@@ -16,7 +16,7 @@ struct CardDetail: View {
             ScrollView(.vertical, showsIndicators: false) {
 
                 GeometryReader { geometry in
-                    AsyncImage(url: card.detailImageURL) { image in
+                    AsyncImage(url: card.detailImageURLs?.first) { image in
                         image
                             .resizable()
                             .scaledToFit()
@@ -24,6 +24,8 @@ struct CardDetail: View {
                             .cornerRadius(10)
                     } placeholder: {
                         ProgressView()
+                            .position(x: geometry.frame(in: .local).midX, y: geometry.frame(in: .local).midY)
+
                     }
                 }
                 .frame(height: 400)
@@ -125,6 +127,7 @@ struct CardDetail_Previews: PreviewProvider {
                         setName: "Adventures in the Forgotten Realms",
                         power: "4",
                         imageSet: ImageSet(borderCrop: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"),
+                        cardFaces: nil,
                         colors: ["W"],
                         artist: "Silvi",
                         rarity: .common,
