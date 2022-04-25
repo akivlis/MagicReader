@@ -22,6 +22,14 @@ struct CardDetail: View {
                             .scaledToFit()
                             .frame(width: geometry.size.width, height: geometry.size.height)
                             .cornerRadius(10)
+                            .if(card.foil) { $0.overlay {
+                                Image("foil-overlay-2")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                    .cornerRadius(10)
+                            }
+                            }
                     } placeholder: {
                         ProgressView()
                             .position(x: geometry.frame(in: .local).midX, y: geometry.frame(in: .local).midY)

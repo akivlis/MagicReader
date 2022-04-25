@@ -25,6 +25,7 @@ struct Card: Codable, Identifiable {
     let rarity: Rarity
     let prices : PriceSet
     let isReserved: Bool
+    var foil: Bool = false // deprecated, use finishes
     let printsSearchURI: String?
 //    let legalities: [String: Legality] = [:]
 
@@ -58,6 +59,7 @@ struct Card: Codable, Identifiable {
         case prices
         case isReserved = "reserved"
         case printsSearchURI = "prints_search_uri"
+        case foil
 //        case legalities
     }
 }

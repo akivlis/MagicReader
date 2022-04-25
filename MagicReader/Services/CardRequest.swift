@@ -12,7 +12,7 @@ import Moya
 
 enum CardRequest {
     case randomCard
-    case card(named: String)
+    case card(named: String, fuzzy: Bool)
     case searchCards(named: String, unique: Bool)
 }
 
@@ -41,9 +41,9 @@ extension CardRequest: TargetType, Equatable {
         switch self {
         case .randomCard:
             return .requestPlain
-        case let .card(name):
+        case let .card(name, fuzzy):
             let urlParameters: [String: Any] = [
-                "exact": name
+                fuzzy ? "fuzzy" : "exact" : name
             ]
             return .requestParameters(parameters: urlParameters, encoding: URLEncoding.default)
         case let .searchCards(name, unique):

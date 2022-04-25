@@ -35,6 +35,7 @@
 		3DB34F9526CC1BEC0081911C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F9426CC1BEC0081911C /* SearchBar.swift */; };
 		3DB34F9926CC1C8E0081911C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F9826CC1C8E0081911C /* Card.swift */; };
 		3DB34F9B26CD25530081911C /* ScanCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F9A26CD25530081911C /* ScanCardView.swift */; };
+		3DB4705C2817382B007AAA48 /* View+MagicReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4705B2817382B007AAA48 /* View+MagicReader.swift */; };
 		3DB590212718B61900FB086D /* StringTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB590202718B61900FB086D /* StringTracker.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		3DB34F9826CC1C8E0081911C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		3DB34F9A26CD25530081911C /* ScanCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCardView.swift; sourceTree = "<group>"; };
 		3DB34F9C26CD43AF0081911C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3DB4705B2817382B007AAA48 /* View+MagicReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+MagicReader.swift"; sourceTree = "<group>"; };
 		3DB590202718B61900FB086D /* StringTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,6 +239,7 @@
 				3DB34F7026CC1B280081911C /* Assets.xcassets */,
 				3D892FA726CFD17E00FB367D /* CardDetector */,
 				3DA8E6D2280353BC007D9ADC /* Constants */,
+				3DB4705A2817380D007AAA48 /* Extensions */,
 				3DA8E6D3280353D1007D9ADC /* Features */,
 				3DB34F9726CC1C750081911C /* Model */,
 				3DB34F7226CC1B280081911C /* Preview Content */,
@@ -287,6 +290,14 @@
 				3D21902726CD6346007F076A /* CardComponent.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3DB4705A2817380D007AAA48 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3DB4705B2817382B007AAA48 /* View+MagicReader.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,6 +456,7 @@
 				3DB34F9926CC1C8E0081911C /* Card.swift in Sources */,
 				3D93ACC727BBD45600E8B811 /* PrintListView.swift in Sources */,
 				3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */,
+				3DB4705C2817382B007AAA48 /* View+MagicReader.swift in Sources */,
 				3D892FA626CFCC8A00FB367D /* ScannerViewController.swift in Sources */,
 				3D892FA926CFD1A600FB367D /* CameraPreviewViewModel.swift in Sources */,
 				3D6778A827A418E300AA93A8 /* CardRequest.swift in Sources */,

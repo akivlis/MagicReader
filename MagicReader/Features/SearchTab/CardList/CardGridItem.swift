@@ -39,7 +39,7 @@ struct CardGridItem: View {
                     Text(card.setName)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                    Text((card.prices.euro ?? "") + "€")
+                    Text((card.prices.euro ?? (card.prices.euroFoil ?? "")) + "€")
                         .font(.caption)
                 }
             }
