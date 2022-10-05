@@ -19,15 +19,15 @@ struct CardDetail: View {
                     AsyncImage(url: card.detailImageURLs?.first) { image in
                         image
                             .resizable()
+                            .cornerRadius(10)
                             .scaledToFit()
                             .frame(width: geometry.size.width, height: geometry.size.height)
-                            .cornerRadius(10)
                             .if(card.foil) { $0.overlay {
                                 Image("foil-overlay-2")
                                     .resizable()
+                                    .cornerRadius(10)
                                     .scaledToFit()
                                     .frame(width: geometry.size.width, height: geometry.size.height)
-                                    .cornerRadius(10)
                             }
                             }
                     } placeholder: {

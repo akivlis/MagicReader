@@ -67,8 +67,8 @@ struct CameraView: UIViewRepresentable {
             super.init()
 
             configureCamera()
+            startCamera()
 
-            session.startRunning()
         }
 
         fileprivate func configureCamera() {
@@ -89,6 +89,18 @@ struct CameraView: UIViewRepresentable {
 
             if session.canAddOutput(output) {
                 session.addOutput(output)
+            }
+        }
+
+        fileprivate func startCamera() {
+            DispatchQueue.global(qos: .background).async { [weak self] in
+                self?.session.startRunning()
+            }
+        }
+
+        func stopCamera() {
+            DispatchQueue.global(qos: .background).async { [weak self] in
+                self?.session.stopRunning()
             }
         }
 
@@ -225,3 +237,4 @@ struct CameraView: UIViewRepresentable {
         //    }
     }
 }
+

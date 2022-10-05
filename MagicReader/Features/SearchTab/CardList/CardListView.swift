@@ -47,6 +47,15 @@ struct CardListView: View {
                             .padding(.bottom, 90) // content inset
                             .padding(.horizontal)
                         }
+                        .onTapGesture {
+                            print("tapped")
+                        }
+                        .gesture(DragGesture()
+                                     .onChanged({ _ in
+                                         print("scrolled")
+                                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                     })
+                         )
                         .edgesIgnoringSafeArea(.bottom)
                     case let .failed(errorMessage):
                         Spacer()
@@ -54,11 +63,7 @@ struct CardListView: View {
                         Spacer()
                     }
                 }
-                .gesture(DragGesture()
-                             .onChanged({ _ in
-                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                             })
-                 )
+
                 .navigationBarTitle("Single Cards")
             }
         }

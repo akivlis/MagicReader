@@ -12,8 +12,10 @@ struct CardGridItem: View {
     var card: Card
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             VStack(alignment: .center) {
+                GeometryReader { geometry in
+
                 AsyncImage(url: URL(string: (card.imageSet?.small ?? card.cardFaces?.first?.imageSet?.small) ?? "")) { phase in
                         switch phase {
                         case .empty:
@@ -21,8 +23,10 @@ struct CardGridItem: View {
                         case .success(let image):
                             image
                                 .resizable()
+                                .cornerRadius(10)
                                 .scaledToFit()
-                                .cornerRadius(12)
+                                .frame(width: geometry.size.width,
+                                       height: geometry.size.height)
 
                         case .failure(_):
                             Color.gray.opacity(0.1)
@@ -30,18 +34,24 @@ struct CardGridItem: View {
                             Image(systemName: "exclamationmark.icloud")
                         }
                     }
-                    .frame(width: 150, height: 230)
+                }
+                .frame(height: 230)
 
-                VStack(alignment: .center, spacing: 6) {
+                VStack(alignment: .leading, spacing: 6) {
                     Text(card.name)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(2)
                         .font(.headline)
                         .foregroundColor(.primary)
                     Text(card.setName)
+                        .lineLimit(2)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     Text((card.prices.euro ?? (card.prices.euroFoil ?? "")) + "€")
                         .font(.caption)
+                        .frame(alignment: .leading)
                 }
+                .padding(.horizontal)
             }
         }
     }
