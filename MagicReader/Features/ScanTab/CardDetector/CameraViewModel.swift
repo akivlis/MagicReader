@@ -21,10 +21,14 @@ class CameraViewModel: ObservableObject {
     }
 
     func startCamera() {
-        session.startRunning()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.session.startRunning()
+        }
     }
 
     func stopCamera() {
-        session.stopRunning()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.session.stopRunning()
+        }
     }
 }

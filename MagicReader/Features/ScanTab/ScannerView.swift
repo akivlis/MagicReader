@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct ScannerView: View {
+
+    @State private var recognizedText = "Test"
+    @ObservedObject private var viewModel = CameraViewModel()
+
     var body: some View {
-        CameraView()
+        NavigationView {
+            ZStack {
+                CameraView(recognizedText: $recognizedText, viewModel: viewModel)
+                Text(recognizedText)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Restart", action: viewModel.startCamera)
+                }
+            }
+        }
     }
 }
 

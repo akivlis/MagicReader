@@ -14,7 +14,10 @@ import CoreML
 struct CameraView: UIViewRepresentable {
 
     @Environment(\.presentationMode) var presentationMode
-    private let session = AVCaptureSession()
+    @Binding var recognizedText: String
+    @ObservedObject var viewModel : CameraViewModel
+
+    // MARK: - VideoPreviewView
 
     class VideoPreviewView: UIView {
         override class var layerClass: AnyClass {
@@ -29,8 +32,8 @@ struct CameraView: UIViewRepresentable {
     // MARK: - Helper
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(session: session,
-                    recognizedText: .constant(""),
+        Coordinator(viewModel: viewModel,
+                    recognizedText: $recognizedText,
                     parent: self)
     }
 
@@ -38,7 +41,7 @@ struct CameraView: UIViewRepresentable {
         let view = VideoPreviewView()
         view.backgroundColor = .black
         view.videoPreviewLayer.cornerRadius = 0
-        view.videoPreviewLayer.session = session
+        view.videoPreviewLayer.session = viewModel.session
         view.videoPreviewLayer.connection?.videoOrientation = .portrait
         return view
     }
@@ -56,19 +59,21 @@ struct CameraView: UIViewRepresentable {
         var session: AVCaptureSession
         let detectionService = CardDetectionService()
         let nameTracker = StringTracker()
+        let viewModel: CameraViewModel
+        var cancellables = Set<AnyCancellable>()
 
-        init(session: AVCaptureSession,
+        init(viewModel: CameraViewModel,
              recognizedText: Binding<String>,
              parent: CameraView) {
-            self.session = session
+            self.viewModel = viewModel
             self.recognizedText = recognizedText
             self.parent = parent
+            self.session = viewModel.session
 
             super.init()
 
             configureCamera()
             startCamera()
-
         }
 
         fileprivate func configureCamera() {
@@ -93,15 +98,11 @@ struct CameraView: UIViewRepresentable {
         }
 
         fileprivate func startCamera() {
-            DispatchQueue.global(qos: .background).async { [weak self] in
-                self?.session.startRunning()
-            }
+            viewModel.startCamera()
         }
 
-        func stopCamera() {
-            DispatchQueue.global(qos: .background).async { [weak self] in
-                self?.session.stopRunning()
-            }
+        fileprivate func stopCamera() {
+            viewModel.stopCamera()
         }
 
         func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -217,7 +218,7 @@ struct CameraView: UIViewRepresentable {
 
 
         func showCardText(name: String, number: String) {
-//            self.recognizedText.wrappedValue = processedText
+            self.recognizedText.wrappedValue = name
             session.stopRunning()
 //            parent.onTextDetected((name, number))
         }

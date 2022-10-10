@@ -22,8 +22,7 @@
 		3D6778B127B068C000AA93A8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6778B027B068C000AA93A8 /* MainView.swift */; };
 		3D6778B527B069AA00AA93A8 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6778B427B069AA00AA93A8 /* ScannerView.swift */; };
 		3D6778B827B06A7B00AA93A8 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6778B727B06A7B00AA93A8 /* LibraryView.swift */; };
-		3D892FA626CFCC8A00FB367D /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */; };
-		3D892FA926CFD1A600FB367D /* CameraPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */; };
+		3D892FA926CFD1A600FB367D /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FA826CFD1A600FB367D /* CameraViewModel.swift */; };
 		3D93ACC727BBD45600E8B811 /* PrintListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93ACC627BBD45600E8B811 /* PrintListView.swift */; };
 		3D93ACCA27BCF53100E8B811 /* PrintListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93ACC927BCF53100E8B811 /* PrintListViewModel.swift */; };
 		3DB34F6D26CC1B270081911C /* MagicReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */; };
@@ -70,8 +69,7 @@
 		3D6778B027B068C000AA93A8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3D6778B427B069AA00AA93A8 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		3D6778B727B06A7B00AA93A8 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
-		3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewViewModel.swift; sourceTree = "<group>"; };
+		3D892FA826CFD1A600FB367D /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		3D93ACC627BBD45600E8B811 /* PrintListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintListView.swift; sourceTree = "<group>"; };
 		3D93ACC927BCF53100E8B811 /* PrintListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintListViewModel.swift; sourceTree = "<group>"; };
 		3DB34F6926CC1B270081911C /* MagicReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +148,7 @@
 		3D6778B327B0698D00AA93A8 /* ScanTab */ = {
 			isa = PBXGroup;
 			children = (
+				3D892FA726CFD17E00FB367D /* CardDetector */,
 				3D6778B427B069AA00AA93A8 /* ScannerView.swift */,
 			);
 			path = ScanTab;
@@ -167,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				3D5049CF26CFACFC00E073F9 /* CameraView.swift */,
-				3D892FA826CFD1A600FB367D /* CameraPreviewViewModel.swift */,
+				3D892FA826CFD1A600FB367D /* CameraViewModel.swift */,
 				3DB590202718B61900FB086D /* StringTracker.swift */,
 			);
 			path = CardDetector;
@@ -235,9 +234,7 @@
 				3DB34F9C26CD43AF0081911C /* Info.plist */,
 				3DB34F6C26CC1B270081911C /* MagicReaderApp.swift */,
 				3D6778B027B068C000AA93A8 /* MainView.swift */,
-				3D892FA526CFCC8A00FB367D /* ScannerViewController.swift */,
 				3DB34F7026CC1B280081911C /* Assets.xcassets */,
-				3D892FA726CFD17E00FB367D /* CardDetector */,
 				3DA8E6D2280353BC007D9ADC /* Constants */,
 				3DB4705A2817380D007AAA48 /* Extensions */,
 				3DA8E6D3280353D1007D9ADC /* Features */,
@@ -457,8 +454,7 @@
 				3D93ACC727BBD45600E8B811 /* PrintListView.swift in Sources */,
 				3D5049CC26CE6E3300E073F9 /* Endpoint.swift in Sources */,
 				3DB4705C2817382B007AAA48 /* View+MagicReader.swift in Sources */,
-				3D892FA626CFCC8A00FB367D /* ScannerViewController.swift in Sources */,
-				3D892FA926CFD1A600FB367D /* CameraPreviewViewModel.swift in Sources */,
+				3D892FA926CFD1A600FB367D /* CameraViewModel.swift in Sources */,
 				3D6778A827A418E300AA93A8 /* CardRequest.swift in Sources */,
 				3DB34F9B26CD25530081911C /* ScanCardView.swift in Sources */,
 			);
